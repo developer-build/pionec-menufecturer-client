@@ -1,89 +1,42 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
-import CustomLink from "./CustomLink";
+import React, { useState } from "react";
+import { MenuAlt1Icon, XIcon } from "@heroicons/react/solid";
+import { useNavigate } from "react-router-dom";
 
-const Navber = ({ children }) => {
-
+const Navber = () => {
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
   return (
-    <div class="drawer">
-      <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
-      <div class="drawer-content flex flex-col">
-        {/* <!-- Navbar --> */}
-        <div class="w-full navbar   container">
-          <div class="flex-1 ">Navbar Title</div>
-          <div class="flex-none lg:hidden">
-            <label for="my-drawer-3" class="btn btn-square btn-ghost">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                class="inline-block w-6 h-6 stroke-current"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
-            </label>
-          </div>
-          <div class="flex-none hidden lg:block">
-            <ul class="menu menu-horizontal space-x-2">
-              {/* <!-- Navbar menu content here -->  */}
-              <li>
-                <CustomLink className="" to="/">
-                  Home
-                </CustomLink>
-              </li>
-              <li>
-                <CustomLink className="" to="/blogs">
-                  Blogs
-                </CustomLink>
-              </li>
-              <li>
-                <CustomLink className="" to="/contact">
-                  Contact
-                </CustomLink>
-              </li>
-              <li>
-                <CustomLink className="" to="/about">
-                  About
-                </CustomLink>
-              </li>
-              <li>
-                <CustomLink className="" to="/login">
-                  Login
-                </CustomLink>
-              </li>
-              <li>
-                <CustomLink className="" to="/signup">
-                  SignUp
-                </CustomLink>
-              </li>
-              <li>
-                
-              </li>
-            </ul>
-          </div>
+    <nav className="container ">
+      <div className="flex items-center  py-4 ">
+        <div className="flex-1 text-white font-bold text-2xl">POINEC</div>
+        <div onClick={() => setOpen(!open)}>
+          {open ? (
+            <XIcon className="w-10 h-10 absolute right-3 top-[12px] cursor-pointer md:hidden"></XIcon>
+          ) : (
+            <MenuAlt1Icon className="w-10 h-10 absolute right-3 top-[12px] cursor-pointer md:hidden"></MenuAlt1Icon>
+          )}
         </div>
-        {/* <!-- Page content here --> */}
-        Content
-        {children}
+        <div
+          className={`flex-1 flex flex-col p-4 md:p-0 rounded-b-lg  md:flex-row justify-end  transition-all duration-500 ease-in-out space-x-1 absolute md:static   md:z-auto z-[2] right-0 w-1/2 md:w-full  space-y-2 md:space-y-0  ${
+            open
+              ? "top-16 opacity-100 bg-white transition-all ease-out"
+              : "top-[-490px] md:opacity-100 opacity-0 transition-all ease-in"
+          }`}
+        >
+          <button className=" px-5 font-semibold rounded py-1 text-white ">Home</button>
+          <button className=" px-5 font-semibold rounded py-1 text-white ">
+            Services
+          </button>
+          <button className=" px-5 font-semibold rounded py-1 text-white ">
+            Contact
+          </button>
+          <button className=" px-5 font-semibold rounded py-1 text-white ">About</button>
+          <button className=" px-5 font-semibold rounded py-1  bg-white text-black">
+            Login
+          </button>
+        </div>
       </div>
-      <div class="drawer-side">
-        <label for="my-drawer-3" class="drawer-overlay"></label>
-        <ul class="menu p-4 overflow-y-auto  w-52 bg-base-100">
-          {/* <!-- Sidebar content here --> */}
-          <li>
-            <a>Sidebar Item 1</a>
-          </li>
-          <li>
-            <a>Sidebar Item 2</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+    </nav>
   );
 };
 

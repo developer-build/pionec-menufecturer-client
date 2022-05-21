@@ -2,13 +2,16 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {},
+    fontFamily: {
+      koulen: ['Poppins', 'sans-serif'],
+    },
     container: {
       center: true,
       padding: "1rem",
       screens: {
-        lg: "1280px",
-        xl: "1280px",
-        "2xl": "1280px",
+        lg: "1200px",
+        xl: "1200px",
+        "2xl": "1200px",
       },
     },
   },
