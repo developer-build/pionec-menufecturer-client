@@ -14,7 +14,7 @@ const WhatweMake = () => {
         <span className=" h-1 bg-orange-600 rounded-full w-28"></span>
         <span className="h-1 bg-gray-400 rounded-full w-24"></span>
       </div>
-      <div className="grid container mt-3 grid-cols-1 mb-10 md:grid-cols-2  gap-10 justify-center lg:grid-cols-3 pt-5 pb-10">
+      <div className="grid container mt-3 grid-cols-1 md:grid-cols-2  gap-10 justify-center lg:grid-cols-3 pt-5 pb-16">
         <div className="text-center">
           <h2 className="text-2xl text-gray-400 mb-3 font-semibold uppercase">
             Home Furnitures
