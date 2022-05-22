@@ -1,5 +1,5 @@
-import Purchase from "../pages/Purchase";
+// import Purchase from "../pages/Purchase";
 
 export const privateRoutes = [
-  { path: "/purchase", name: "Purchase", Component: Purchase },
+  // { path: "/purchase", name: "Purchase", Component: Purchase },
 ];

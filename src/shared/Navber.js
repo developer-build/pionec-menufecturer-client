@@ -45,12 +45,12 @@ const Navber = () => {
             >
               Home
             </Link>
-            <Link
-              to="/purchase"
+            {/* <Link
+              to="/purchase/123"
               className=" px-5 font-semibold rounded py-1 text-black md:text-white "
             >
               Purchase
-            </Link>
+            </Link> */}
             <Link
               to="/dashboard/my-profile"
               className=" px-5 font-semibold rounded py-1 text-black md:text-white"

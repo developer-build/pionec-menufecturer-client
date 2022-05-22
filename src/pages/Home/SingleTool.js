@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 const SingleTool = ({ tool }) => {
   const navigate = useNavigate();
   const {
+    _id,
     img,
     name,
     orderQuantity,
@@ -48,7 +49,7 @@ const SingleTool = ({ tool }) => {
           {description.slice(0, 135)}
         </p>
         <button
-          onClick={() => navigate("/purchase")}
+          onClick={() => navigate(`/purchase/${_id}`)}
           className="btn bg-neutral w-full mt-4 text-white"
         >
           Place Order
