@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import Footer from "../../shared/Footer";
 import Navber from "../../shared/Navber";
 import DashboardSidebar from "./DashboardSidebar";
 
@@ -10,6 +11,7 @@ const Dashboard = () => {
       <DashboardSidebar>
         <Outlet />
       </DashboardSidebar>
+      <Footer/>
     </div>
   );
 };

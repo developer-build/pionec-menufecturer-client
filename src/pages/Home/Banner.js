@@ -8,7 +8,7 @@ const Banner = () => {
   return (
     <div
       style={{ backgroundImage: `url(${bg})` }}
-      className={`bg-center bg-cover bg-no-repeat h-[105vh] bg-blend-darken overflow-x-hidden overflow-y-hidden `}
+      className={`bg-center bg-cover bg-no-repeat h-full md:h-screen bg-blend-darken  `}
     >
       <Navber />
       <div className="h-[68vh] flex flex-col gap-5 justify-center items-center">

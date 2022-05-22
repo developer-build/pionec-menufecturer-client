@@ -29,7 +29,7 @@ const Navber = () => {
             {open ? (
               <XIcon className="w-10 h-10 absolute right-3 top-[12px] cursor-pointer md:hidden"></XIcon>
             ) : (
-              <MenuAlt1Icon className="w-10 h-10 absolute right-3 top-4 cursor-pointer md:hidden"></MenuAlt1Icon>
+              <MenuAlt1Icon className="w-10 h-10 absolute right-3 top-2 cursor-pointer md:hidden"></MenuAlt1Icon>
             )}
           </div>
           <div
