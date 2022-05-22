@@ -1,5 +1,5 @@
 import Purchase from "../pages/Purchase";
 
-const privateRotes = [
-    { path: "/", name: "Home", Component: Purchase }
+export const privateRoutes = [
+  { path: "/purchase", name: "Purchase", Component: Purchase },
 ];

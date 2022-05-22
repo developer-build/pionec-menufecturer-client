@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const SingleTool = ({ tool }) => {
+  const navigate = useNavigate();
   const {
     img,
     name,
@@ -45,7 +47,10 @@ const SingleTool = ({ tool }) => {
         <p className="text-gray-500 text-sm mt-3 ">
           {description.slice(0, 135)}
         </p>
-        <button className="btn bg-neutral w-full mt-4 text-white">
+        <button
+          onClick={() => navigate("/purchase")}
+          className="btn bg-neutral w-full mt-4 text-white"
+        >
           Place Order
         </button>
       </div>

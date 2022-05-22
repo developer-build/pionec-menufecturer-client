@@ -13,7 +13,7 @@ const Navber = () => {
     <div className={pathname.indexOf("/") && "bg-red-600"}>
       <nav className="container ">
         <div className="flex items-center py-3  ">
-          <div className="flex-1 flex items-center text-white font-bold text-2xl">
+          <div className=" flex items-center text-white font-bold text-2xl">
             {pathname.includes("/dashboard") && (
               <label
                 for="my-drawer-2"
@@ -44,6 +44,12 @@ const Navber = () => {
               className=" px-5 font-semibold rounded py-1 text-black md:text-white "
             >
               Home
+            </Link>
+            <Link
+              to="/purchase"
+              className=" px-5 font-semibold rounded py-1 text-black md:text-white "
+            >
+              Purchase
             </Link>
             <Link
               to="/dashboard/my-profile"

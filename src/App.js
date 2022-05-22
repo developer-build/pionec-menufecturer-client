@@ -1,10 +1,11 @@
 import { Route, Routes } from "react-router-dom";
+import RequireAuth from "./authentication/RequireAuth";
 import AddAReview from "./pages/Dashboard/AddAReview";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import MyOrders from "./pages/Dashboard/MyOrders";
 import MyProfile from "./pages/Dashboard/MyProfile";
 import { publicRoutes } from "./routes/publicRoutes";
-import Footer from "./shared/Footer";
+import {privateRoutes} from './routes/privateRoutes';
 
 function App() {
   return (
@@ -13,6 +14,11 @@ function App() {
         {publicRoutes.map(({ path, Component }, index) => (
           <Route path={path} key={index} element={<Component />} />
         ))}
+        <Route element={<RequireAuth />}>
+          {privateRoutes.map(({ path, Component }, index) => (
+            <Route key={index} path={path} element={<Component />} />
+          ))}
+        </Route>
         <Route path="dashboard" element={<Dashboard />}>
           <Route path="my-profile" element={<MyProfile />}></Route>
           <Route path="my-orders" element={<MyOrders />}></Route>
