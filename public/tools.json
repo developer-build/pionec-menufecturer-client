@@ -1,0 +1,66 @@
+[
+  {
+    "img": "https://i.ibb.co/BCS10qj/img1.jpg",
+    "name": "Engine",
+    "orderQuantity": 10,
+    "availableQuantity": 1000,
+    "perPartsPrice": 549,
+    "description": "The engine is the heart or soul of the vehicle, which is also called as IC (Ignition Combustion) Engine. It contains many parts such as a timing chain, crankshaft, camshaft, cylinders, spark plugs, valves, pistons, etc. "
+  },
+  {
+    "img": "https://i.ibb.co/GFHcZMV/img2.jpg",
+    "name": " Clutch",
+    "orderQuantity": 20,
+    "availableQuantity": 5000,
+    "perPartsPrice": 124,
+    "description": "The clutch plates of the vehicle are placed in the engine with the transmissions to shift the torque of the vehicle applied by the driver and hold the gear arrangements while shifting the gears according to the requirement."
+  },
+  {
+    "img": "https://i.ibb.co/BTmd7sn/img8.jpg",
+    "name": " Gear Lever",
+    "orderQuantity": 30,
+    "availableQuantity": 2000,
+    "perPartsPrice": 105,
+    "description": "The Gear shift is nothing but the gear arrangement used to move the vehicle forward, reverse, or neutral. Usually, there is a stick shift system in manual transmission cars. It is also called a transmission lever attached to the transmission of an automobile. Automatic transmission vehicles contain hydraulic transmissions which do not require physical clutch pedals."
+  },
+  {
+    "img": "https://i.ibb.co/cbvdPKD/img4.jpg",
+    "name": "Gear Shift",
+    "orderQuantity": 40,
+    "availableQuantity": 1000,
+    "perPartsPrice": 127,
+    "description": "Order parts one wasn't in stock they shipped three boxes. One part didn't fit.to contact to get RMA # witch never came i had to chase down the number. They were to send mailing label which never came i had to call to get label. When credit card came there were three charges on bill. I chatted to get a invoice for each that didn't happen. They were mixed together on one invoice still confused and money not right"
+  },
+  {
+    "img": "https://i.ibb.co/HzpRV5Q/img5.jpg",
+    "name": "Piston",
+    "orderQuantity": 50,
+    "availableQuantity": 1500,
+    "perPartsPrice": 517,
+    "description": "The piston is the major part of the engine, which is responsible for pumping the power torque from the combusted fuels to the camshafts and crankshafts to move the vehicle."
+  },
+  {
+    "img": " https://i.ibb.co/vvjt8q8/img6.jpg",
+    "name": "Steering Wheel",
+    "orderQuantity": 20,
+    "availableQuantity": 1000,
+    "perPartsPrice": 198,
+    "description": "The Steering wheel is used for controlling the direction of the vehicle. The steering wheel is directly connected to the system to operate the vehicle to move in any direction, which tends to rotate the vehicle’s front wheels."
+  },
+  {
+    "img": " https://i.ibb.co/dBPHFQB/img7.jpg",
+    "name": "Piston",
+    "orderQuantity": 20,
+    "availableQuantity": 1000,
+    "perPartsPrice": 198,
+    "description": "The Steering wheel is used for controlling the direction of the vehicle. The steering wheel is directly connected to the system to operate the vehicle to move in any direction, which tends to rotate the vehicle’s front wheels."
+  },
+  {
+    "img": "https://i.ibb.co/BTmd7sn/img8.jpg",
+    "name": "Steering Wheel",
+    "orderQuantity": 20,
+    "availableQuantity": 1000,
+    "perPartsPrice": 198,
+    "description": "The Steering wheel is used for controlling the direction of the vehicle. The steering wheel is directly connected to the system to operate the vehicle to move in any direction, which tends to rotate the vehicle’s front wheels."
+  }
+]

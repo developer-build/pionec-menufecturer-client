@@ -5,7 +5,7 @@ import DashboardSidebar from "./DashboardSidebar";
 
 const Dashboard = () => {
   return (
-    <div className="bg-base-100">
+    <div className="bg-neutral">
       <Navber></Navber>
       <DashboardSidebar>
         <Outlet />

@@ -24,7 +24,7 @@ const Testimonials = () => {
     { id: 9, name: "Nash Patrik", address: "CEO, Manpol", img: img3 },
   ];
   return (
-    <div className="bg-white py-16 px-4">
+    <div className="bg-secondary py-16 px-4">
       <div className="flex items-center justify-center  pb-4 ">
         <h1 className="text-3xl text-center uppercase text-base-100 font-semibold">
           {" "}
@@ -67,7 +67,7 @@ const Testimonials = () => {
          
           {reviews.map((r) => (
             <SwiperSlide>
-              <div className="p-5 rounded-xl md:w-[370px] mx-auto bg-secondary">
+              <div className="p-5 rounded-xl md:w-[370px] mx-auto bg-white">
                 <div className="flex items-center gap-5">
                   <img src={r.img} className="w-16 h-16" alt="" />
                   <div>
