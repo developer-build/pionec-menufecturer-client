@@ -1,13 +1,15 @@
-import React from 'react';
-import Navber from '../shared/Navber';
+import React from "react";
+import Footer from "../shared/Footer";
+import Navber from "../shared/Navber";
 
 const Contact = () => {
-    return (
-        <div>
-            <Navber/>
-            Welcome to contact us
-        </div>
-    );
+  return (
+    <div className="bg-accent">
+      <Navber />
+      <div className="bg-base-100">Welcome to contact us</div>
+      <Footer />
+    </div>
+  );
 };
 
 export default Contact;

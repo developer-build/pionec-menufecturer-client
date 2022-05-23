@@ -55,6 +55,12 @@ const Navber = () => {
             )}
 
             <Link
+              to="/blogs"
+              className=" px-5 font-semibold rounded py-1 text-black md:text-white "
+            >
+              Blogs
+            </Link>
+            <Link
               to="/contact"
               className=" px-5 font-semibold rounded py-1 text-black md:text-white "
             >
@@ -78,7 +84,7 @@ const Navber = () => {
                   tabindex="0"
                   class="  px-4 font-semibold rounded py-2  bg-orange-600 text-gray-900"
                 >
-                 Profile
+                  Profile
                 </label>
                 <ul
                   tabindex="0"

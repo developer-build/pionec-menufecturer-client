@@ -54,9 +54,9 @@ const Login = () => {
     signInWithEmailAndPassword(data.email, data.password);
   };
   return (
-    <div>
+    <div className="bg-accent">
+      <Navber></Navber>
       <div className="bg-base-100">
-        <Navber></Navber>
         <div className="h-full md:h-screen   my-10 lg:my-0 container flex justify-center items-center">
           <div className="w-full  md:w-[50%] lg:w-[33%]">
             {/* <img className="h-[60px] mx-auto w-40" src={""} alt="" /> */}
