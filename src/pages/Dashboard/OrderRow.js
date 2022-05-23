@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const OrderRow = ({ order, index, setDeleteOrder }) => {
-  const { name, toolsName, quantity, price } = order;
+  const { _id, name, toolsName, quantity, price } = order;
+  const navigate = useNavigate();
   return (
     <tr>
       <th>{index + 1}</th>
@@ -18,7 +20,12 @@ const OrderRow = ({ order, index, setDeleteOrder }) => {
         >
           Cancel
         </label>
-        <button className="btn btn-sm btn-success">Pay</button>{" "}
+        <button
+          className="btn btn-sm btn-success"
+          onClick={() => navigate(`/payments/${_id}`)}
+        >
+          Pay
+        </button>{" "}
       </td>
       <td>
         {!order.paid ? (

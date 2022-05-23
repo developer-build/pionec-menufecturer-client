@@ -23,7 +23,7 @@ function App() {
             <Route key={index} path={path} element={<Component />} />
           ))}
         </Route>
-        <Route path="/payment" element={<Payment />}></Route>
+        <Route path="payments/:id" element={<Payment />}></Route>
         <Route path="dashboard" element={<Dashboard />}>
           <Route path="my-profile" element={<MyProfile />}></Route>
           <Route path="my-orders" element={<MyOrders />}></Route>
