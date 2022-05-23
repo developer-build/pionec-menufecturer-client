@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const OrderRow = ({ order, index, setDeleteOrder }) => {
   const { _id, name, toolsName, quantity, price } = order;
@@ -12,26 +12,41 @@ const OrderRow = ({ order, index, setDeleteOrder }) => {
       <td>{quantity}</td>
       <td>${price}</td>
       <td className="space-x-2">
-        {" "}
-        <label
-          onClick={() => setDeleteOrder(order)}
-          for="my-modal-6"
-          class="btn modal-button btn-sm btn-error"
-        >
-          Cancel
-        </label>
-        <button
-          className="btn btn-sm btn-success"
-          onClick={() => navigate(`/payments/${_id}`)}
-        >
-          Pay
-        </button>{" "}
+        {order.price && order.paid && (
+          <div>
+            <p>
+              <span className="text-success">Paid</span>
+            </p>
+          </div>
+        )}
+        {!order.paid && (
+          <>
+            <label
+              onClick={() => setDeleteOrder(order)}
+              for="my-modal-6"
+              class="btn modal-button btn-sm btn-error"
+            >
+              Cancel
+            </label>
+            <button
+              className="btn btn-sm btn-success"
+              onClick={() => navigate(`/dashboard/payments/${_id}`)}
+            >
+              Pay
+            </button>
+          </>
+        )}
       </td>
-      <td>
-        {!order.paid ? (
-          <span className="text-error">Unpaid</span>
-        ) : (
-          "Transection Id"
+
+      <td className="capitalize font-semibold text-gray-600">
+        {order.price && order.paid && (
+          <>
+
+            <p>
+          
+              <span className="text-success">{order.transactionId}</span>
+            </p>
+          </>
         )}
       </td>
     </tr>

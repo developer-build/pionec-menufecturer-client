@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import fetcher from "../api";
 import auth from "../shared/firebase.init";
 import Footer from "../shared/Footer";
@@ -15,6 +15,7 @@ const Purchase = () => {
   const [loading, setLoading] = useState(false);
   const [quantity, setQuantity] = useState(0);
   const [error, setError] = useState(false);
+  const navigate = useNavigate();
   const { id } = useParams();
   useEffect(() => {
     setLoading(true);
@@ -71,7 +72,9 @@ const Purchase = () => {
           .then((res) => {
             if (res.data) {
               toast.success("Order Successfull");
+
               event.target.reset();
+              navigate("/dashboard/my-orders");
             }
           });
       }
@@ -95,9 +98,9 @@ const Purchase = () => {
             <h1 className="text-center text-4xl font-koulen font-semibold uppercase pb-16 text-accent">
               Purchase <span className="text-primary">tools</span>
             </h1>
-            <div className="w-full gap-5  flex justify-between items-start ">
-              <div className="w-4/6">
-                <div className="flex items-center bg-white py-10 px-5 rounded-xl h-full justify-center gap-5">
+            <div className="w-full gap-5   flex justify-between items-start ">
+              <div className="w-4/6 h-full">
+                <div className="flex items-center bg-white py-10 px-5 rounded-xl  justify-center gap-5">
                   <img src={tool.img} className="w-80 h-80" alt="" />
                   <div className="text-accent">
                     <h1 className="font-semibold text-3xl mb-5">
@@ -134,7 +137,7 @@ const Purchase = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-96  px-5 bg-accent pb-5  rounded-xl ">
+              <div className="w-96  px-4 bg-accent pb-3  rounded-xl ">
                 <h1 className="text-center text-4xl font-semibold  py-5  text-white">
                   Order Info
                 </h1>
@@ -177,44 +180,50 @@ const Purchase = () => {
                       </span>
                     )} */}
 
+                    <div className="flex items-center gap-3 justify-between">
+                      
                     <input
-                      type="text"
-                      placeholder="Where to Ship"
-                      class="input  placeholder:text-[15px] py-5 my-3"
-                      name="address"
-                      // {...register("address", {
-                      //   required: {
-                      //     value: true,
-                      //     message: "Ship Address is required!",
-                      //   },
-                      // })}
-                    />
-                    {/* {errors.address?.type === "required" && (
+                        type="number"
+                        placeholder="Quantity"
+                        class="input w-2/6 placeholder:text-[15px] py-5 my-3"
+                        // onChange={increaseQuantity}
+                        // {...register("quantity", {
+                        //   required: {
+                        //     value: true,
+                        //     message: "Quantity is required!",
+                        //   },
+                        //   pattern: {
+
+                        //   }
+                        // })}
+                        name="quantity"
+                      />
+                      
+                      
+                      <input
+                        type="text"
+                        placeholder="Where to Ship"
+                        class="input w-4/6 placeholder:text-[15px] py-5 my-3"
+                        name="address"
+                        // {...register("address", {
+                        //   required: {
+                        //     value: true,
+                        //     message: "Ship Address is required!",
+                        //   },
+                        // })}
+                      />
+                      {/* {errors.address?.type === "required" && (
                       <span className="label-text-alt text-red-600  pl-1">
                         {errors.address.message}
                       </span>
                     )} */}
-                    <input
-                      type="number"
-                      placeholder="Quantity"
-                      class="input w-2/6 placeholder:text-[15px] py-5 my-3"
-                      // onChange={increaseQuantity}
-                      // {...register("quantity", {
-                      //   required: {
-                      //     value: true,
-                      //     message: "Quantity is required!",
-                      //   },
-                      //   pattern: {
-
-                      //   }
-                      // })}
-                      name="quantity"
-                    />
-                    {/* {errors.quantity?.type === "required" && (
+                
+                      {/* {errors.quantity?.type === "required" && (
                       <span className="label-text-alt text-red-600  pl-1">
                         {errors.quantity.message}
                       </span>
                     )} */}
+                    </div>
                   </div>
 
                   <button

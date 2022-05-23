@@ -9,7 +9,7 @@ import { privateRoutes } from "./routes/privateRoutes";
 // import Purchase from "./pages/Purchase";
 import NotFound from "./pages/NotFound";
 import { Toaster } from "react-hot-toast";
-import Payment from "./pages/Payment";
+import Payment from "./pages/Dashboard/Payment";
 
 function App() {
   return (
@@ -23,8 +23,8 @@ function App() {
             <Route key={index} path={path} element={<Component />} />
           ))}
         </Route>
-        <Route path="payments/:id" element={<Payment />}></Route>
         <Route path="dashboard" element={<Dashboard />}>
+          <Route path="payments/:id" element={<Payment />}></Route>
           <Route path="my-profile" element={<MyProfile />}></Route>
           <Route path="my-orders" element={<MyOrders />}></Route>
           <Route path="my-reviews" element={<AddAReview />}></Route>
