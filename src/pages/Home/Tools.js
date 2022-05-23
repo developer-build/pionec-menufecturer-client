@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from "react";
+import fetcher from "../../api";
+import Spinner from "../../shared/Spinner";
 import SingleTool from "./SingleTool";
 
 const Tools = () => {
   const [tools, setTools] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/tool")
-      .then((res) => res.json())
-      .then((data) => setTools(data));
+    const fetchig = async () => {
+      const res = await fetcher.get("/tool");
+      setTools(res.data);
+      setLoading(false);
+    };
+    fetchig();
   }, []);
+  if (loading) {
+    return <Spinner />;
+  }
   return (
     <div className=" bg-secondary py-20">
       <div className="container">

@@ -2,10 +2,11 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const DashboardSidebar = ({ children }) => {
+  
   return (
     <div class="drawer drawer-mobile   bg-base-100">
       <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-      <div class="drawer-content flex flex-col items-center justify-center">
+      <div class="drawer-content ">
         {/* <!-- Page content here --> */}
         {children}
       </div>

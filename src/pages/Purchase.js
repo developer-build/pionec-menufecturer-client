@@ -1,34 +1,91 @@
+import { async } from "@firebase/util";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
+import fetcher from "../api";
 import auth from "../shared/firebase.init";
 import Footer from "../shared/Footer";
 import Navber from "../shared/Navber";
+import Spinner from "../shared/Spinner";
 const Purchase = () => {
   const [tool, setTool] = useState({});
+  const [loading, setLoading] = useState(false);
   const [quantity, setQuantity] = useState(0);
-  const [orderQuantity, setOrderQuantity] = useState(null);
-
+  const [error, setError] = useState(false);
   const { id } = useParams();
   useEffect(() => {
-    const url = `http://localhost:5000/tool/${id}`;
-    axios.get(url).then((res) => setTool(res.data));
+    setLoading(true);
+    const url = `/tool/${id}`;
+    const fetching = async () => {
+      const res = await fetcher.get(url);
+      setTool(res.data);
+      setLoading(false);
+    };
+    fetching();
   }, [id]);
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-    reset,
-  } = useForm();
-  console.log(quantity);
-  const onSubmit = async (data) => {
-    setQuantity(data.quantity);
-    reset();
-  };
-  const [user] = useAuthState(auth);
 
+  // const {
+  //   register,
+  //   formState: { errors },
+  //   handleSubmit,
+  //   reset,
+  // } = useForm();
+  const [user] = useAuthState(auth);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const name = user.displayName;
+    const email = user.email;
+    const phoneNumber = event.target.phone.value;
+    const address = event.target.address.value;
+    const quantity = event.target.quantity.value;
+    if (phoneNumber && address && quantity) {
+      if (quantity < tool.orderQuantity) {
+        setError(true);
+        toast.error("You have to order minimun quantiy", {
+          id: 1,
+          position: "bottom-right",
+        });
+      } else if (quantity > tool.availableQuantity) {
+        setError(true);
+        toast.error("We don't have that much stock", {
+          id: 2,
+          position: "bottom-right",
+        });
+      } else {
+        // const data = { };
+        const price = quantity * tool.perPartsPrice;
+        fetcher
+          .post("/order", {
+            toolsId: tool._id,
+            toolsName: tool.name,
+            name,
+            email,
+            phoneNumber,
+            address,
+            quantity,
+            price,
+          })
+          .then((res) => {
+            if (res.data) {
+              toast.success("Order Successfull");
+              event.target.reset();
+            }
+          });
+      }
+    } else {
+      toast.error("Plese Fill Up this Form", {
+        id: 4,
+        position: "bottom-right",
+      });
+    }
+  };
+
+  if (loading) {
+    return <Spinner />;
+  }
   return (
     <div>
       <Navber></Navber>
@@ -79,17 +136,18 @@ const Purchase = () => {
               </div>
               <div className="w-96  px-5 bg-accent pb-5  rounded-xl ">
                 <h1 className="text-center text-4xl font-semibold  py-5  text-white">
-                  Fill UP
+                  Order Info
                 </h1>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit}>
                   <div className="flex flex-col ">
                     <input
                       type="text"
                       placeholder="Name"
                       class="input w-full placeholder:text-[15px] py-5 mb-3 "
                       defaultValue={user.displayName}
-                      disabled
-                      {...register("name", { value: user.displayName })}
+                      readOnly
+                      name="name"
+                      // {...register("name", { value: user.displayName })}
                     />
 
                     <input
@@ -97,35 +155,71 @@ const Purchase = () => {
                       placeholder="Email"
                       class="input w-full placeholder:text-[15px] py-5 my-3"
                       defaultValue={user.email}
-                      disabled
-                      {...register("email", { value: user.email })}
+                      readOnly
+                      name="email"
+                      // {...register("email", { value: user.email })}
                     />
                     <input
                       type="phone"
                       placeholder="Phone Number"
                       class="input w-full placeholder:text-[15px] py-5 my-3"
-                      {...register("phone", { required: true })}
+                      // {...register("phone", {
+                      //   required: {
+                      //     value: true,
+                      //     message: "Phone Number is required!",
+                      //   },
+                      // })}
+                      name="phone"
                     />
+                    {/* {errors.phone?.type === "required" && (
+                      <span className="label-text-alt text-red-600  pl-1">
+                        {errors.phone.message}
+                      </span>
+                    )} */}
 
-                    <div className="flex gap-4">
-                      <input
-                        type="text"
-                        placeholder="Where to Ship"
-                        class="input  placeholder:text-[15px] w-4/6 py-5 my-3"
-                        {...register("address", { required: true })}
-                      />
-                      <input
-                        type="number"
-                        placeholder="Quantity"
-                        class="input w-2/6 placeholder:text-[15px] py-5 my-3"
-                        {...register("quantity", { required: true })}
-                      />
-                    </div>
+                    <input
+                      type="text"
+                      placeholder="Where to Ship"
+                      class="input  placeholder:text-[15px] py-5 my-3"
+                      name="address"
+                      // {...register("address", {
+                      //   required: {
+                      //     value: true,
+                      //     message: "Ship Address is required!",
+                      //   },
+                      // })}
+                    />
+                    {/* {errors.address?.type === "required" && (
+                      <span className="label-text-alt text-red-600  pl-1">
+                        {errors.address.message}
+                      </span>
+                    )} */}
+                    <input
+                      type="number"
+                      placeholder="Quantity"
+                      class="input w-2/6 placeholder:text-[15px] py-5 my-3"
+                      // onChange={increaseQuantity}
+                      // {...register("quantity", {
+                      //   required: {
+                      //     value: true,
+                      //     message: "Quantity is required!",
+                      //   },
+                      //   pattern: {
+
+                      //   }
+                      // })}
+                      name="quantity"
+                    />
+                    {/* {errors.quantity?.type === "required" && (
+                      <span className="label-text-alt text-red-600  pl-1">
+                        {errors.quantity.message}
+                      </span>
+                    )} */}
                   </div>
 
                   <button
                     type="submit"
-                    className="px-8 mt-5 text-lg w-full  rounded py-2 font-semibold font-koulen hover:bg-orange-700 transition duration-300 ease-in-out bg-primary text-gray-900"
+                    className={`px-8 mt-5 text-lg w-full  rounded py-2 font-semibold font-koulen hover:bg-orange-700 transition duration-300 ease-in-out bg-primary text-gray-900`}
                   >
                     Order
                   </button>

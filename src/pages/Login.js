@@ -125,7 +125,7 @@ const Login = () => {
                       type="checkbox"
                       name=""
                       className="checkbox checkbox-sm checkbox-primary  mr-3"
-                      id=""
+                      defaultChecked
                     />
                     <span className="text-sm  text-gray-500 ">Remember me</span>
                   </div>
