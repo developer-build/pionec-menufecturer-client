@@ -9,6 +9,7 @@ import { privateRoutes } from "./routes/privateRoutes";
 // import Purchase from "./pages/Purchase";
 import NotFound from "./pages/NotFound";
 import { Toaster } from "react-hot-toast";
+import Payment from "./pages/Payment";
 
 function App() {
   return (
@@ -22,15 +23,15 @@ function App() {
             <Route key={index} path={path} element={<Component />} />
           ))}
         </Route>
-     
+        <Route path="/payment" element={<Payment />}></Route>
         <Route path="dashboard" element={<Dashboard />}>
           <Route path="my-profile" element={<MyProfile />}></Route>
           <Route path="my-orders" element={<MyOrders />}></Route>
           <Route path="my-reviews" element={<AddAReview />}></Route>
         </Route>
-        <Route path="*" element={<NotFound/>}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
-      <Toaster/>
+      <Toaster />
     </>
   );
 }

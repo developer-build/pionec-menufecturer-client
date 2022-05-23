@@ -1,27 +1,34 @@
-import React from 'react';
+import React from "react";
 
-const OrderRow = () => {
-    return (
-      <tr>
-        <th>{index + 1}</th>
-        <td>{order.name}</td>
-        <td>{order.toolsName}</td>
-        <td>{order.quantity}</td>
-        <td>${order.price}</td>
-        <td>
-          {" "}
-          <button className="btn btn-sm btn-error">Cancel</button>{" "}
-          <label
-            onClick={() => setDeleteOrder(order)}
-            for="my-modal"
-            class="btn modal-button"
-          >
-            open modal
-          </label>
-          <button className="btn btn-sm btn-success">Pay</button>{" "}
-        </td>
-      </tr>
-    );
+const OrderRow = ({ order, index, setDeleteOrder }) => {
+  const { name, toolsName, quantity, price } = order;
+  return (
+    <tr>
+      <th>{index + 1}</th>
+      <td>{name}</td>
+      <td>{toolsName}</td>
+      <td>{quantity}</td>
+      <td>${price}</td>
+      <td className="space-x-2">
+        {" "}
+        <label
+          onClick={() => setDeleteOrder(order)}
+          for="my-modal-6"
+          class="btn modal-button btn-sm btn-error"
+        >
+          Cancel
+        </label>
+        <button className="btn btn-sm btn-success">Pay</button>{" "}
+      </td>
+      <td>
+        {!order.paid ? (
+          <span className="text-error">Unpaid</span>
+        ) : (
+          "Transection Id"
+        )}
+      </td>
+    </tr>
+  );
 };
 
 export default OrderRow;
