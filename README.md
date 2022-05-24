@@ -10,7 +10,8 @@ Live site link :  [Pionec paint  tools menufecturer](https://github.com/facebook
 - Here user have to login to go protectted Route
 - here is a review route , user can post review about products and it will show on home page
 - here user can order a products and delete this products from my order page 
-- here is 
+- in my order page user can see her orderd product
+- here is also have payment method , and user 
 
 ## Technology used this project
 - React js 
@@ -23,7 +24,8 @@ Live site link :  [Pionec paint  tools menufecturer](https://github.com/facebook
 - Hosting in Firebase
 - stripe js for payment
 - axious & react query 
-
+- mongodb (backend)
+- express (backend)
 ## Project Experience
 - this is hardest project for me during this course
 - lots new this learn from this project . 
