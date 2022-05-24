@@ -13,25 +13,12 @@ import img2 from "../../assests/imges/cartoon.png";
 const Testimonials = () => {
   const [allReviews, setAllReviews] = useState([]);
   const sortedReview = [...allReviews].reverse()
-  // console.log(allReviews);
-  console.log(sortedReview);
   useEffect(() => {
     fetch("http://localhost:4000/review")
       .then((res) => res.json())
       .then((data) => setAllReviews(data));
   }, []);
-  // console.log(allReviews);
-  // const reviews = [
-  //   { id: 1, name: "Nash Patrik", address: "CEO, Manpol", img: img1 },
-  //   { id: 2, name: "Miriam Barron", address: "CEO, Manpol", img: img2 },
-  //   { id: 3, name: "Bria Malone", address: "CEO, Manpol", img: img3 },
-  //   { id: 4, name: "Nash Patrik", address: "CEO, Manpol", img: img2 },
-  //   { id: 5, name: "Miriam Barron", address: "CEO, Manpol", img: img1 },
-  //   { id: 6, name: "Nash Patrik", address: "CEO, Manpol", img: img3 },
-  //   { id: 7, name: "Miriam Barron", address: "CEO, Manpol", img: img1 },
-  //   { id: 8, name: "Bria Malone", address: "CEO, Manpol", img: img2 },
-  //   { id: 9, name: "Nash Patrik", address: "CEO, Manpol", img: img3 },
-  // ];
+
   return (
     <div className="bg-secondary py-10 px-4">
       <div className="flex items-center justify-center  pb-4 ">

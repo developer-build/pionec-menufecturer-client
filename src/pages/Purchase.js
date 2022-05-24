@@ -9,8 +9,9 @@ import Navber from "../shared/Navber";
 import Spinner from "../shared/Spinner";
 const Purchase = () => {
   const [tool, setTool] = useState({});
+  const [quantity, setQuantity] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+
   const navigate = useNavigate();
   const { id } = useParams();
   useEffect(() => {
@@ -24,22 +25,26 @@ const Purchase = () => {
     fetching();
   }, [id]);
   const [user] = useAuthState(auth);
+  const getQuantity = (event) => {
+    const quantityNumber = event.target.value;
+    if (quantityNumber < tool.orderQuantity) {
+      toast.error('Order minimum Quality',{id:12,position:'bottom-right'})
+    }
+    setQuantity(quantityNumber);
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     const name = user.displayName;
     const email = user.email;
     const phoneNumber = event.target.phone.value;
     const address = event.target.address.value;
-    const quantity = event.target.quantity.value;
     if (phoneNumber && address && quantity) {
       if (quantity < tool.orderQuantity) {
-        setError(true);
         toast.error("You have to order minimun quantiy", {
           id: 1,
           position: "bottom-right",
         });
       } else if (quantity > tool.availableQuantity) {
-        setError(true);
         toast.error("We don't have that much stock", {
           id: 2,
           position: "bottom-right",
@@ -158,6 +163,7 @@ const Purchase = () => {
 
                     <div className="flex items-center gap-3 justify-between">
                       <input
+                        onChange={getQuantity}
                         type="number"
                         placeholder="Quantity"
                         class="input w-2/6 placeholder:text-[15px] py-5 my-3"
@@ -174,8 +180,14 @@ const Purchase = () => {
                   </div>
 
                   <button
+                    // disabled={quantity<tool.orderQuantity}
                     type="submit"
-                    className={`px-8 mt-5 text-lg w-full  rounded py-2 font-semibold font-koulen hover:bg-orange-700 transition duration-300 ease-in-out bg-primary text-gray-900`}
+                    className={`btn btn-md w-full ${
+                      quantity < tool.orderQuantity ||
+                      quantity > tool.availableQuantity
+                        ? "btn-disabled bg-zinc-500"
+                        : "btn-primary"
+                    }`}
                   >
                     Order
                   </button>

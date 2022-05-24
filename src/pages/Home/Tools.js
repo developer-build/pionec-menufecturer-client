@@ -1,4 +1,6 @@
+import { ArrowCircleRightIcon } from "@heroicons/react/solid";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import fetcher from "../../api";
 import Spinner from "../../shared/Spinner";
 import SingleTool from "./SingleTool";
@@ -6,6 +8,7 @@ import SingleTool from "./SingleTool";
 const Tools = () => {
   const [tools, setTools] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate=useNavigate()
   useEffect(() => {
     const fetchig = async () => {
       const res = await fetcher.get("/tool");
@@ -33,6 +36,10 @@ const Tools = () => {
             <SingleTool key={index} tool={tool}></SingleTool>
           ))}
         </div>
+        <button className="btn btn-primary btn-md mx-auto flex items-center mt-5" onClick={()=>navigate('/all-products')}>
+          Explore All Painting Tools
+          <ArrowCircleRightIcon className="h-8 w-8 ml-3" />
+        </button>
       </div>
     </div>
   );

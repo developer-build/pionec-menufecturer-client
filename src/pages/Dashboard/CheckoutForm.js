@@ -85,7 +85,7 @@ const CheckoutForm = ({ tool }) => {
   };
   return (
     <div>
-      <form className="text-white" onSubmit={handleSubmit}>
+      <form className="text-white relative" onSubmit={handleSubmit}>
         <CardElement
           options={{
             style: {
@@ -93,7 +93,7 @@ const CheckoutForm = ({ tool }) => {
                 fontSize: "16px",
                 color: "#000000",
                 "::placeholder": {
-                  color: "#000000",
+                  color: "#afdlrd",
                 },
               },
               invalid: {
@@ -102,23 +102,26 @@ const CheckoutForm = ({ tool }) => {
             },
           }}
         />
+
+        {success && (
+          <>
+            <p className="text-sm text-accent font-semibold mt-2 ">
+              Transection Id :{" "}
+              <span className="text-success font-bold font-koulen">{transectionId}</span>
+            </p>
+          </>
+        )}
+        {cardError && (
+          <p className="text-sm text-error mb-0 mt-3 ">{cardError}</p>
+        )}
         <button
-          className=" py-2 px-5  rounded-md uppercase font-koulen  bg-green-700 mt-5"
+          className={`btn btn-md ${cardError||success ? "mt-4" : "mt-12"} `}
           type="submit"
           disabled={!stripe || !clientSecret || success}
         >
-          Payment
+          make the payment
         </button>
       </form>
-      {cardError && <p className="text-sm text-error mt-1 ">{cardError}</p>}
-      {success && (
-        <>
-          <p className="text-sm text-white mt-2 ">
-            Transection Id :{" "}
-            <span className="text-success">{transectionId}</span>
-          </p>
-        </>
-      )}
     </div>
   );
 };

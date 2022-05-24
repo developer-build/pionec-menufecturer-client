@@ -21,63 +21,57 @@ const Payment = () => {
   const { name, toolsName, quantity, price } = tool;
   return (
     <div className="bg-accent">
-      {/* <Navber /> */}
-      <div className="h-screen bg-gray-100">
-        <h1 className="text-primary pt-10 font-koulen font-semibold text-4xl text-center py-5 ">
+      
+      <div className="h-screen bg-gray-800">
+        <h1 className="text-primary  pt-10 font-koulen font-semibold text-4xl text-center uppercase py-5 ">
           Payment Method
         </h1>
-        <div className="flex flex-col px-10 md:flex-row justify-center mt-10 h-[50vh] items-center container  gap-5">
-          <div class="card  h-full flex-1 bg-gray-100 shadow-md ">
-            <div class="card-body text-accent">
-              <h2 class="text-accent font-koulen uppercase font-semibold text-2xl">
+        <div className="flex flex-col rounded-xl md:flex-row justify-center mt-8 md:mt-20  items-center mx-auto container w-full md:w-5/6 bg-accent py-3 ">
+          <div class="card  h-full flex-1 bg-accent  ">
+            <div class="card-body ml-0 pl-3 text-white">
+              <h2 class="text-white font-koulen uppercase font-semibold text-2xl">
                 {" "}
-                Welcome <span className="text-accent">{name}</span>{" "}
+                Welcome <span className="text-white">{name}</span>{" "}
               </h2>
-              <h2 class="uppercase font-semibold mt-5  text-accent">
+              <h2 class="uppercase font-semibold mt-5  text-white">
                 Payment For :{" "}
-                <span className="text-accent font-bold font-koulen">
+                <span className="text-white font-bold font-koulen">
                   {toolsName}
                 </span>
               </h2>
               <h2 className="mb-0 m">
                 {" "}
                 Order Quantity :{" "}
-                <span className="text-accent font-bold font-koulen">
+                <span className="text-white font-bold font-koulen">
                   {quantity}
                 </span>
               </h2>
               <h2 className="mb-0 m">
                 {" "}
                 Order Price :{" "}
-                <span className="text-accent font-bold font-koulen">
+                <span className="text-white font-bold font-koulen">
                   {" "}
                   {price}
                 </span>
               </h2>
-              <h2 className="text-accent">
+              <h2 className="text-white">
                 Total Payment:{" "}
-                <span className="text-accent font-bold font-koulen">
+                <span className="text-white font-bold font-koulen">
                   ${price}
                 </span>
               </h2>
 
-              <h2 className="mt-5 uppercase">
+              <h2 className="mt-10 uppercase text-xl font-koulen">
                 Your total payment :{" "}
-                <span className="text-primary font-bold">{price}</span>
+                <span className="text-primary font-bold">${price}</span> 
               </h2>
             </div>
           </div>
-          <div class="card  h-full w-full flex-1 bg-gray-100 ">
+          <div class="card   w-full h-full  flex-1 bg-white opacity-80  ">
             <div class="">
-              {/* <div className="flex justify-center items-center"> */}
-              {/* <div className="flex h-36">
-                <img className="w-1/2" src={cardImg4} alt="" />
-                <img className="w-1/2 h-full" src={cardImg} alt="" />
-              </div> */}
               <img className="w-72 " src={cardImg2} alt="" />
-              {/* </div> */}
               <img src="" alt="" />
-              <div className="m-3 mt-4">
+              <div className="m-3 mt-5 bg-white ">
                 <Elements stripe={stripePromise}>
                   <CheckoutForm tool={tool} />
                 </Elements>
@@ -86,7 +80,6 @@ const Payment = () => {
           </div>
         </div>
       </div>
-      {/* <Footer /> */}
     </div>
   );
 };
