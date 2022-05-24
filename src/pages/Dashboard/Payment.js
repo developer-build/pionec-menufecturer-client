@@ -5,9 +5,8 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import Spinner from "../../shared/Spinner";
 import CheckoutForm from "./CheckoutForm";
-import cardImg from "../../assests/imges/icons/card-2.png";
 import cardImg2 from "../../assests/imges/icons/card-3.png";
-import cardImg3 from "../../assests/imges/icons/card-4.png";
+
 const Payment = () => {
   const { id } = useParams();
   const stripePromise = loadStripe(
@@ -23,37 +22,62 @@ const Payment = () => {
   return (
     <div className="bg-accent">
       {/* <Navber /> */}
-      <div className="h-screen bg-secondary">
+      <div className="h-screen bg-gray-100">
         <h1 className="text-primary pt-10 font-koulen font-semibold text-4xl text-center py-5 ">
           Payment Method
         </h1>
         <div className="flex flex-col px-10 md:flex-row justify-center mt-10 h-[50vh] items-center container  gap-5">
-          <div class="card w-full h-full flex-1 bg-white shadow-xl ">
+          <div class="card  h-full flex-1 bg-gray-100 shadow-md ">
             <div class="card-body text-accent">
-              <h2 class="text-accent font-semibold text-2xl">
+              <h2 class="text-accent font-koulen uppercase font-semibold text-2xl">
                 {" "}
-                Welcome {name}{" "}
+                Welcome <span className="text-accent">{name}</span>{" "}
               </h2>
-              <h2 class="card-title text-accent">
-                Pay For <span className="text-accent">{toolsName}</span>
+              <h2 class="uppercase font-semibold mt-5  text-accent">
+                Payment For :{" "}
+                <span className="text-accent font-bold font-koulen">
+                  {toolsName}
+                </span>
               </h2>
-              <p> Order Quantity : {quantity}</p>
-              <p> Order Price : {price}</p>
+              <h2 className="mb-0 m">
+                {" "}
+                Order Quantity :{" "}
+                <span className="text-accent font-bold font-koulen">
+                  {quantity}
+                </span>
+              </h2>
+              <h2 className="mb-0 m">
+                {" "}
+                Order Price :{" "}
+                <span className="text-accent font-bold font-koulen">
+                  {" "}
+                  {price}
+                </span>
+              </h2>
+              <h2 className="text-accent">
+                Total Payment:{" "}
+                <span className="text-accent font-bold font-koulen">
+                  ${price}
+                </span>
+              </h2>
 
-              <p className="text-accent">
-                You have to Pay :{" "}
-                <span className="font-semibold">${price}</span>
-              </p>
+              <h2 className="mt-5 uppercase">
+                Your total payment :{" "}
+                <span className="text-primary font-bold">{price}</span>
+              </h2>
             </div>
           </div>
-          <div class="card p-3 h-full w-full flex-1 bg-neutral shadow-xl">
+          <div class="card  h-full w-full flex-1 bg-gray-100 ">
             <div class="">
               {/* <div className="flex justify-center items-center"> */}
-              <img className="w-52" src={cardImg2} alt="" />
-              <img className="w-52" src={cardImg3} alt="" />
-             {/* </div> */}
+              {/* <div className="flex h-36">
+                <img className="w-1/2" src={cardImg4} alt="" />
+                <img className="w-1/2 h-full" src={cardImg} alt="" />
+              </div> */}
+              <img className="w-72 " src={cardImg2} alt="" />
+              {/* </div> */}
               <img src="" alt="" />
-              <div className=" mt-7">
+              <div className="m-3 mt-4">
                 <Elements stripe={stripePromise}>
                   <CheckoutForm tool={tool} />
                 </Elements>

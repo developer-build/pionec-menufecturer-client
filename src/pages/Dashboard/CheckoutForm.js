@@ -1,6 +1,6 @@
-
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const CheckoutForm = ({ tool }) => {
   const stripe = useStripe();
@@ -66,6 +66,7 @@ const CheckoutForm = ({ tool }) => {
       setCardError("");
       setTransectionId(paymentIntent.id);
       setSuccess("Congrats! Your payment is Successfull");
+      toast.success("Congrats! Your payment is Successfull");
       const payment = {
         tools: _id,
         transactionId: paymentIntent.id,
@@ -84,15 +85,15 @@ const CheckoutForm = ({ tool }) => {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className="text-white" onSubmit={handleSubmit}>
         <CardElement
           options={{
             style: {
               base: {
                 fontSize: "16px",
-                color: "#424770",
+                color: "#ffffff",
                 "::placeholder": {
-                  color: "#aab7c4",
+                  color: "#000000",
                 },
               },
               invalid: {
@@ -102,19 +103,19 @@ const CheckoutForm = ({ tool }) => {
           }}
         />
         <button
-          className="btn text-white btn-sm btn-success mt-4"
+          className=" py-2 px-5 rounded-md uppercase font-koulen  bg-green-700 mt-5"
           type="submit"
           disabled={!stripe || !clientSecret || success}
         >
           Payment
         </button>
       </form>
-      {cardError && <p className="text-sm text-error mt-2 ">{cardError}</p>}
+      {cardError && <p className="text-sm text-error mt-1 ">{cardError}</p>}
       {success && (
         <>
-          <p className="text-sm text-success mt-2 ">
+          <p className="text-sm text-white mt-2 ">
             Transection Id :{" "}
-            <span className="text-accent">{transectionId}</span>
+            <span className="text-success">{transectionId}</span>
           </p>
         </>
       )}

@@ -1,8 +1,5 @@
-import { async } from "@firebase/util";
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import fetcher from "../api";
@@ -13,7 +10,6 @@ import Spinner from "../shared/Spinner";
 const Purchase = () => {
   const [tool, setTool] = useState({});
   const [loading, setLoading] = useState(false);
-  const [quantity, setQuantity] = useState(0);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -27,13 +23,6 @@ const Purchase = () => {
     };
     fetching();
   }, [id]);
-
-  // const {
-  //   register,
-  //   formState: { errors },
-  //   handleSubmit,
-  //   reset,
-  // } = useForm();
   const [user] = useAuthState(auth);
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -111,14 +100,14 @@ const Purchase = () => {
                       <span className="font-bold text-accent text-xl">
                         {tool.availableQuantity}
                       </span>{" "}
-                      /u
+                      units
                     </h1>
                     <h1 className=" text-zinc-700 font-semibold mb-1">
                       Min-Order Quantity :{" "}
                       <span className="font-bold text-accent text-xl">
                         {tool.orderQuantity}{" "}
                       </span>{" "}
-                      /u
+                      units
                     </h1>
                     <h1 className=" text-zinc-700 font-semibold mb-1">
                       Unit Price :{" "}
@@ -150,7 +139,6 @@ const Purchase = () => {
                       defaultValue={user.displayName}
                       readOnly
                       name="name"
-                      // {...register("name", { value: user.displayName })}
                     />
 
                     <input
@@ -160,69 +148,28 @@ const Purchase = () => {
                       defaultValue={user.email}
                       readOnly
                       name="email"
-                      // {...register("email", { value: user.email })}
                     />
                     <input
                       type="phone"
                       placeholder="Phone Number"
                       class="input w-full placeholder:text-[15px] py-5 my-3"
-                      // {...register("phone", {
-                      //   required: {
-                      //     value: true,
-                      //     message: "Phone Number is required!",
-                      //   },
-                      // })}
                       name="phone"
                     />
-                    {/* {errors.phone?.type === "required" && (
-                      <span className="label-text-alt text-red-600  pl-1">
-                        {errors.phone.message}
-                      </span>
-                    )} */}
 
                     <div className="flex items-center gap-3 justify-between">
-                      
-                    <input
+                      <input
                         type="number"
                         placeholder="Quantity"
                         class="input w-2/6 placeholder:text-[15px] py-5 my-3"
-                        // onChange={increaseQuantity}
-                        // {...register("quantity", {
-                        //   required: {
-                        //     value: true,
-                        //     message: "Quantity is required!",
-                        //   },
-                        //   pattern: {
-
-                        //   }
-                        // })}
                         name="quantity"
                       />
-                      
-                      
+
                       <input
                         type="text"
                         placeholder="Where to Ship"
                         class="input w-4/6 placeholder:text-[15px] py-5 my-3"
                         name="address"
-                        // {...register("address", {
-                        //   required: {
-                        //     value: true,
-                        //     message: "Ship Address is required!",
-                        //   },
-                        // })}
                       />
-                      {/* {errors.address?.type === "required" && (
-                      <span className="label-text-alt text-red-600  pl-1">
-                        {errors.address.message}
-                      </span>
-                    )} */}
-                
-                      {/* {errors.quantity?.type === "required" && (
-                      <span className="label-text-alt text-red-600  pl-1">
-                        {errors.quantity.message}
-                      </span>
-                    )} */}
                     </div>
                   </div>
 
