@@ -91,7 +91,7 @@ const CheckoutForm = ({ tool }) => {
             style: {
               base: {
                 fontSize: "16px",
-                color: "#ffffff",
+                color: "#000000",
                 "::placeholder": {
                   color: "#000000",
                 },
@@ -103,7 +103,7 @@ const CheckoutForm = ({ tool }) => {
           }}
         />
         <button
-          className=" py-2 px-5 rounded-md uppercase font-koulen  bg-green-700 mt-5"
+          className=" py-2 px-5  rounded-md uppercase font-koulen  bg-green-700 mt-5"
           type="submit"
           disabled={!stripe || !clientSecret || success}
         >

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -8,23 +8,32 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Pagination } from "swiper";
-import img1 from "../../assests/imges/Ellipse 90.png";
-import img2 from "../../assests/imges/Ellipse 91.png";
-import img3 from "../../assests/imges/Ellipse 92.png";
+import img2 from "../../assests/imges/cartoon.png";
+
 const Testimonials = () => {
-  const reviews = [
-    { id: 1, name: "Nash Patrik", address: "CEO, Manpol", img: img1 },
-    { id: 2, name: "Miriam Barron", address: "CEO, Manpol", img: img2 },
-    { id: 3, name: "Bria Malone", address: "CEO, Manpol", img: img3 },
-    { id: 4, name: "Nash Patrik", address: "CEO, Manpol", img: img2 },
-    { id: 5, name: "Miriam Barron", address: "CEO, Manpol", img: img1 },
-    { id: 6, name: "Nash Patrik", address: "CEO, Manpol", img: img3 },
-    { id: 7, name: "Miriam Barron", address: "CEO, Manpol", img: img1 },
-    { id: 8, name: "Bria Malone", address: "CEO, Manpol", img: img2 },
-    { id: 9, name: "Nash Patrik", address: "CEO, Manpol", img: img3 },
-  ];
+  const [allReviews, setAllReviews] = useState([]);
+  const sortedReview = [...allReviews].reverse()
+  // console.log(allReviews);
+  console.log(sortedReview);
+  useEffect(() => {
+    fetch("http://localhost:4000/review")
+      .then((res) => res.json())
+      .then((data) => setAllReviews(data));
+  }, []);
+  // console.log(allReviews);
+  // const reviews = [
+  //   { id: 1, name: "Nash Patrik", address: "CEO, Manpol", img: img1 },
+  //   { id: 2, name: "Miriam Barron", address: "CEO, Manpol", img: img2 },
+  //   { id: 3, name: "Bria Malone", address: "CEO, Manpol", img: img3 },
+  //   { id: 4, name: "Nash Patrik", address: "CEO, Manpol", img: img2 },
+  //   { id: 5, name: "Miriam Barron", address: "CEO, Manpol", img: img1 },
+  //   { id: 6, name: "Nash Patrik", address: "CEO, Manpol", img: img3 },
+  //   { id: 7, name: "Miriam Barron", address: "CEO, Manpol", img: img1 },
+  //   { id: 8, name: "Bria Malone", address: "CEO, Manpol", img: img2 },
+  //   { id: 9, name: "Nash Patrik", address: "CEO, Manpol", img: img3 },
+  // ];
   return (
-    <div className="bg-secondary py-16 px-4">
+    <div className="bg-secondary py-10 px-4">
       <div className="flex items-center justify-center  pb-4 ">
         <h1 className="text-3xl text-center uppercase text-base-100 font-semibold">
           {" "}
@@ -62,52 +71,57 @@ const Testimonials = () => {
             },
           }}
           modules={[Pagination]}
-          className="mySwiper h-[340px]"
+          className="mySwiper h-72"
         >
-         
-          {reviews.map((r) => (
+          {sortedReview.map((r) => (
             <SwiperSlide>
-              <div className="p-5 rounded-xl md:w-[370px] mx-auto bg-white">
-                <div className="flex items-center gap-5">
-                  <img src={r.img} className="w-16 h-16" alt="" />
-                  <div>
-                    <h2 className="text-lg font-semibold text-gray-700">
-                      Nash Patrik
+              <div className="p-5 rounded-xl h-52 md:w-[370px] mx-auto bg-white relative">
+                <div className="flex items-center  gap-5">
+                  <img src={img2} className="w-14 h-14" alt="" />
+                  <div className="h">
+                    <h2 className="text-lg font-semibold capitalize text-gray-700">
+                      {r.name}
                     </h2>
-                    <p className="text-gray-600 text-sm">CEO, Manpol</p>
+                    <p className="text-gray-600 font-semibold text-sm">
+                      Ratings:{" "}
+                      <span className="font-bold font-koulen text-primary">
+                        {r.rating}
+                      </span>
+                    </p>
                   </div>
                 </div>
 
-                <p className="mt-4 text-gray-500">
-                  Lorem ipsum dolor sit amet, consectetur <br /> adipiscing
-                  elit. Purus commodo ipsum <br /> duis laoreet maecenas.
-                  Feugiat{" "}
+                <p className="mt-4 text-gray-500 font-koulen text-sm">
+                  {r.review.length < 110
+                    ? r.review
+                    : r.review.slice(0, 108) + "..."}
                 </p>
-                <div class="rating mt-6">
+                <div class="rating absolute bottom-4 left-5">
                   <input
                     type="radio"
                     name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
+                    class="mask mask-star-2 w-4 bg-orange-400"
+                  />
+
+                  <input
+                    type="radio"
+                    name="rating-2"
+                    class="mask mask-star-2 w-4 bg-orange-400"
                   />
                   <input
                     type="radio"
                     name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
+                    class="mask mask-star-2 w-4 bg-orange-400"
                   />
                   <input
                     type="radio"
                     name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
+                    class="mask mask-star-2 w-4 bg-orange-400"
                   />
                   <input
                     type="radio"
                     name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    class="mask mask-star-2 bg-orange-400"
+                    class="mask mask-star-2 w-4 bg-orange-400"
                     defaultChecked
                   />
                 </div>

@@ -10,6 +10,7 @@ import { privateRoutes } from "./routes/privateRoutes";
 import NotFound from "./pages/NotFound";
 import { Toaster } from "react-hot-toast";
 import Payment from "./pages/Dashboard/Payment";
+import AllProducts from "./pages/AllProducts";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route key={index} path={path} element={<Component />} />
           ))}
         </Route>
+        <Route path="all-products" element={<AllProducts/>}></Route>
         <Route path="dashboard" element={<Dashboard />}>
           <Route path="payments/:id" element={<Payment />}></Route>
           <Route path="my-profile" element={<MyProfile />}></Route>
