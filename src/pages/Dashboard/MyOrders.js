@@ -1,6 +1,8 @@
+import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
+import { useNavigate } from "react-router-dom";
 import auth from "../../shared/firebase.init";
 import Spinner from "../../shared/Spinner";
 import DeleteModal from "./DeleteModal";
@@ -11,17 +13,26 @@ const MyOrders = () => {
   // const [loading, setLoading] = useState(false);
   const [deleteOrder, setDeleteOrder] = useState(null);
   const [user] = useAuthState(auth);
+  const navigate = useNavigate();
   const email = user?.email;
-  if (user) {
-  }
   const {
     data: orders,
     isLoading,
     refetch,
-  } = useQuery(["orders", email], () =>
-    fetch(`http://localhost:4000/order?email=${email}`).then((res) =>
-      res.json()
-    )
+  } = useQuery(["ordersCollection", email], () =>
+    fetch(`http://localhost:4000/order?email=${email}`, {
+      method: "GET",
+      headers: {
+        authorization: `Bearar ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => {
+      if (res.status === 401 || res.status === 403) {
+        signOut(auth);
+        localStorage.removeItem("accessToken");
+        navigate("/");
+      }
+      return res.json();
+    })
   );
   if (isLoading) {
     return <Spinner></Spinner>;
@@ -65,7 +76,7 @@ const MyOrders = () => {
                 <th>Quantity</th>
                 <th>Total Price</th>
                 <th>Order</th>
-               
+
                 <th>Transection Id</th>
               </tr>
             </thead>

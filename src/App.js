@@ -4,33 +4,78 @@ import AddAReview from "./pages/Dashboard/AddAReview";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import MyOrders from "./pages/Dashboard/MyOrders";
 import MyProfile from "./pages/Dashboard/MyProfile";
-import { publicRoutes } from "./routes/publicRoutes";
+
 import { privateRoutes } from "./routes/privateRoutes";
-// import Purchase from "./pages/Purchase";
+
 import NotFound from "./pages/NotFound";
 import { Toaster } from "react-hot-toast";
 import Payment from "./pages/Dashboard/Payment";
 import AllProducts from "./pages/AllProducts";
+import Home from "./pages/Home/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Blogs from "./pages/Blogs";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import MyPortfolio from "./pages/MyPortfolio";
+import Purchase from "./pages/Purchase";
+import MakeAdmin from "./pages/Dashboard/MakeAdmin";
+import AllUsers from "./pages/Dashboard/AllUsers";
+import RequireAdmin from "./authentication/RequireAdmin";
 
 function App() {
   return (
     <>
       <Routes>
-        {publicRoutes.map(({ path, Component }, index) => (
-          <Route path={path} key={index} element={<Component />} />
-        ))}
-        <Route element={<RequireAuth />}>
-          {privateRoutes.map(({ path, Component }, index) => (
-            <Route key={index} path={path} element={<Component />} />
-          ))}
-        </Route>
-        <Route path="all-products" element={<AllProducts/>}></Route>
-        <Route path="dashboard" element={<Dashboard />}>
+        {/* --------Public Route------------- */}
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/my-portfolio" element={<MyPortfolio />} />
+        {/* --------Private Route------------- */}
+        <Route
+          path="/purchase/:id"
+          element={
+            <RequireAuth>
+              <Purchase />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="all-products"
+          element={
+            <RequireAuth>
+              <Purchase />
+            </RequireAuth>
+          }
+        />
+
+        <Route
+          path="dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        >
           <Route path="payments/:id" element={<Payment />}></Route>
           <Route path="my-profile" element={<MyProfile />}></Route>
           <Route path="my-orders" element={<MyOrders />}></Route>
           <Route path="my-reviews" element={<AddAReview />}></Route>
+          <Route
+            path="all-users"
+            element={
+              <RequireAdmin>
+                <AllUsers />
+              </RequireAdmin>
+            }
+          ></Route>
         </Route>
+
+        {/* --------NOt Found Route------------- */}
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <Toaster />

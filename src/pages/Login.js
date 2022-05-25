@@ -10,10 +10,12 @@ import {
 import Spinner from "../shared/Spinner";
 import { useForm } from "react-hook-form";
 import Footer from "../shared/Footer";
+import useToken from "../hooks/useToken";
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [token] = useToken(user || gUser);
   const {
     register,
     formState: { errors },
@@ -22,7 +24,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  if (user || gUser) {
+  if (token) {
     navigate(from, { replace: true });
   }
   if (loading || gLoading) {

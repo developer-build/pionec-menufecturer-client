@@ -11,11 +11,13 @@ import auth from "../shared/firebase.init";
 import Spinner from "../shared/Spinner";
 import { useForm } from "react-hook-form";
 import Footer from "../shared/Footer";
+import useToken from "../hooks/useToken";
 const Signup = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [updateProfile, updating] = useUpdateProfile(auth);
+  const [token] = useToken(user || gUser);
   const {
     register,
     formState: { errors },
@@ -25,7 +27,7 @@ const Signup = () => {
   if (gLoading || loading || updating) {
     return <Spinner></Spinner>;
   }
-  if (gUser || user) {
+  if (token) {
     navigate("/");
   }
   let errorMsg;
@@ -162,7 +164,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
