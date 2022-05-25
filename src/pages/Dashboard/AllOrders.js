@@ -1,17 +1,38 @@
-import React, { useEffect, useState } from "react";
-
+import React from "react";
+import { useQuery } from "react-query";
+import Spinner from "../../shared/Spinner";
 const AllOrders = () => {
-  const [allOrders, setAllOrders] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:4000/order", {
+  // const [allOrders, setAllOrders] = useState([]);
+  const {
+    isLoading,
+    data: allOrders,
+    refetch,
+  } = useQuery("shippingStatus", () =>
+    fetch(`http://localhost:4000/order`, {
       method: "GET",
       headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
+  );
+  if (isLoading) {
+    return <Spinner />;
+  }
+  const updateStatus = (id) => {
+    fetch(`http://localhost:4000/shipping-order/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
         authorization: `Bearar ${localStorage.getItem("accessToken")}`,
       },
     })
       .then((res) => res.json())
-      .then((data) => setAllOrders(data));
-  }, []);
+      .then((data) => {
+        if (data) {
+          refetch();
+        }
+      });
+  };
   return (
     <div className="bg-secondary h-screen ">
       <div className="bg-secondary py-10">
@@ -29,7 +50,8 @@ const AllOrders = () => {
                     <th>Name</th>
                     <th>Email</th>
                     <th>Tools Name</th>
-                    <th>Status</th>
+                    <th>Payment Status</th>
+                    <th>Shipping Status</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -40,7 +62,24 @@ const AllOrders = () => {
                       <td>{order.email}</td>
                       <td>{order.toolsName}</td>
                       <td>
-                        {order.paid ? <span className="text-green-600">Paid</span> : <span className="text-red-600">Not Paid</span>}
+                        {order.paid ? (
+                          <span className="text-green-600">Paid</span>
+                        ) : (
+                          <span className="text-red-600">Not Paid</span>
+                        )}
+                      </td>
+                      <td>
+                        {order.paid && !order.ship && (
+                          <button
+                            onClick={() => updateStatus(order._id)}
+                            className="btn btn-sm btn-warning"
+                          >
+                            Pending
+                          </button>
+                        )}
+                        {
+                          order.ship&& <span className="text-secondary font-koulen font-bold">Shipped</span>
+                        }
                       </td>
                     </tr>
                   ))}
