@@ -38,13 +38,13 @@ const MyProfile = () => {
   }
 
   return (
-    <div className="bg-gray-300 h-full">
-      <div className="px-5 bg-gray-300 text-accent">
+    <div className="bg-secondary h-full">
+      <div className="px-5 bg-secondary text-accent">
         {/* <h1 className="text-4xl font-koulen pt-5 pb-10 uppercase text-center">
           {" "}
           My Profile
         </h1> */}
-        <div className="w-5/6  bg-gray-300 h-full pb-10 mx-auto">
+        <div className="w-5/6  bg-secondary h-full pb-10 mx-auto">
           <div className=" pt-10 flex-col ">
             <div class="avatar online">
               <div class="w-32 rounded-full">
@@ -61,7 +61,7 @@ const MyProfile = () => {
             </p>
           </div>
           <div>
-            <div className="flex justify-between  mx-auto mt-10">
+            <div className="flex flex-col md:flex-row justify-between  mx-auto mt-10">
               <div className="font-koulen  ">
                 <h2 className="text-2xl font-semibold text-gray-700 ">
                   Information
@@ -87,7 +87,7 @@ const MyProfile = () => {
                   {currentUser.study ? currentUser.study :"Study info not given"}
                 </p>
               </div>
-              <div className="font-koulen">
+              <div className="font-koulen mt-5 md:mt-0">
                 <h2 className="text-2xl font-semibold text-gray-700 ">
                   Social Media
                 </h2>
