@@ -1,10 +1,8 @@
 import {
   BookOpenIcon,
-  CameraIcon,
   MailIcon,
   MapIcon,
   PhoneIcon,
-  UserIcon,
 } from "@heroicons/react/solid";
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -76,15 +74,19 @@ const MyProfile = () => {
                 </p>
                 <p className="mt-2 flex text-[15px] items-center">
                   <PhoneIcon className="w-6 h-6 mr-3  text-slate-800"></PhoneIcon>{" "}
-                  +88-{currentUser.phone ? currentUser.phone :12345678}
+                  +88-{currentUser.phone ? currentUser.phone : 12345678}
                 </p>
                 <p className="mt-2 flex text-[15px] items-center">
                   <MapIcon className="w-6 h-6 mr-3  text-slate-800"></MapIcon>{" "}
-                  {currentUser.address ? currentUser.address :"No address given"}
+                  {currentUser.address
+                    ? currentUser.address
+                    : "No address given"}
                 </p>
                 <p className="mt-2 flex text-[15px] items-center">
                   <BookOpenIcon className="w-6 h-6 mr-3 text-slate-800"></BookOpenIcon>{" "}
-                  {currentUser.study ? currentUser.study :"Study info not given"}
+                  {currentUser.study
+                    ? currentUser.study
+                    : "Study info not given"}
                 </p>
               </div>
               <div className="font-koulen mt-5 md:mt-0">
@@ -94,25 +96,33 @@ const MyProfile = () => {
                 <p className="mt-3 flex items-center">
                   <img src={fb} className="w-6 mr-4 rounded-full" alt="" />
                   <span className="text-sm italic">
-                    {currentUser.fb ? currentUser.fb:'Facebook info not given'}
+                    {currentUser.fb
+                      ? currentUser.fb
+                      : "Facebook info not given"}
                   </span>
                 </p>
                 <p className="mt-2 flex items-center">
                   <img src={insta} className="w-6 mr-4 rounded-full" alt="" />
                   <span className="text-sm italic">
-                  {currentUser.insta ? currentUser.insta:'Instagram info not given'}
+                    {currentUser.insta
+                      ? currentUser.insta
+                      : "Instagram info not given"}
                   </span>
                 </p>
                 <p className="mt-2 flex items-center">
                   <img src={linkdin} className="w-6 mr-4 rounded-full" alt="" />
                   <span className="text-sm italic">
-                  {currentUser.linkdin ? currentUser.linkdin:'Linkdin info not given'}
+                    {currentUser.linkdin
+                      ? currentUser.linkdin
+                      : "Linkdin info not given"}
                   </span>
                 </p>
                 <p className="mt-2 flex items-center">
                   <img src={github} className="w-6 mr-4 rounded-full" alt="" />
                   <span className="text-sm italic">
-                  {currentUser.github ? currentUser.github:'Github info not given'}
+                    {currentUser.github
+                      ? currentUser.github
+                      : "Github info not given"}
                   </span>
                 </p>
               </div>

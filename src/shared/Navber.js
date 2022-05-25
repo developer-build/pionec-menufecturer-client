@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MenuAlt1Icon, MenuAlt3Icon, XIcon } from "@heroicons/react/solid";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "./firebase.init";
 import { signOut } from "firebase/auth";
@@ -8,6 +8,7 @@ import { signOut } from "firebase/auth";
 const Navber = () => {
   const [open, setOpen] = useState(false);
   const [user] = useAuthState(auth);
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   return (
     <div className={pathname.indexOf("/") && "bg-red-600"}>
@@ -66,7 +67,7 @@ const Navber = () => {
             >
               Contact
             </Link>
-           
+
             <Link
               to="/my-portfolio"
               className=" px-5 font-semibold rounded py-1 text-black md:text-white "
@@ -96,7 +97,10 @@ const Navber = () => {
                   <li>
                     <button
                       className="px-5 font-semibold rounded py-2 flex items-center justify-center  bg-orange-600 text-gray-900"
-                      onClick={() => signOut(auth)}
+                      onClick={() => {
+                        signOut(auth);
+                        navigate("/");
+                      }}
                     >
                       Sign Out
                     </button>
