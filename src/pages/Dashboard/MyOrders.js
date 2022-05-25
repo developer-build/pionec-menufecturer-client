@@ -37,28 +37,7 @@ const MyOrders = () => {
   if (isLoading) {
     return <Spinner></Spinner>;
   }
-  // useEffect(() => {
-  //   if (user) {
-  //     setLoading(true);
-  //     fetch(
-  //       `http://localhost:4000/order?email=${email}`
-  //       // {
-  //       //   method: "GET",
-  //       //   headers: {
-  //       //     authorization: `Bearar ${localStorage.getItem("accessToken")}`,
-  //       //   },
-  //       // }
-  //     )
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         setOrders(data);
-  //         setLoading(false);
-  //       });
-  //   }
-  // }, [email, user]);
-  // if (loading) {
-  //   return <Spinner />;
-  // }
+
   return (
     <div className="bg-secondary h-full w-full text-accent pt-8 pb-16">
       <h1 className="text-3xl font-koulen text-center font-semibold uppercase text-primary">

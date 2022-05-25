@@ -27,7 +27,7 @@ const DeleteModal = ({ order, setDeleteOrder, refetch }) => {
           </p>
           <div className="flex justify-center modal-action">
             <label
-              htmlFor="my-modal-6"
+              htmlFor="my-modal-7"
               className="btn bg-green-700 hover:bg-green-800 text-gray-300"
             >
               Close Action

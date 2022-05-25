@@ -38,6 +38,11 @@ const DashboardSidebar = ({ children }) => {
           )}
           {admin && (
             <li>
+              <NavLink to="/dashboard/manage-products">Mange Products</NavLink>
+            </li>
+          )}
+          {admin && (
+            <li>
               <NavLink to="/dashboard/all-orders">Total Orders</NavLink>
             </li>
           )}

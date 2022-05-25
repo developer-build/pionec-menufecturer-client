@@ -47,9 +47,9 @@ const AddProducts = () => {
               if (data.insertedId) {
                 setFormLoading(false);
                 reset();
-                toast.success("Doctor added successfully");
+                toast.success("Product added successfully");
               } else {
-                toast.error("Failed to add doctor");
+                toast.error("Failed to add Product");
               }
             });
         }

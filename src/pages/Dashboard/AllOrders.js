@@ -29,7 +29,7 @@ const AllOrders = () => {
                     <th>Name</th>
                     <th>Email</th>
                     <th>Tools Name</th>
-                    <th>Favorite Color</th>
+                    <th>Status</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -39,7 +39,9 @@ const AllOrders = () => {
                       <td>{order.name}</td>
                       <td>{order.email}</td>
                       <td>{order.toolsName}</td>
-                      <td>Blue</td>
+                      <td>
+                        {order.paid ? <span className="text-green-600">Paid</span> : <span className="text-red-600">Not Paid</span>}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
