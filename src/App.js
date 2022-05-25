@@ -5,7 +5,6 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import MyOrders from "./pages/Dashboard/MyOrders";
 import MyProfile from "./pages/Dashboard/MyProfile";
 
-import { privateRoutes } from "./routes/privateRoutes";
 
 import NotFound from "./pages/NotFound";
 import { Toaster } from "react-hot-toast";
@@ -19,9 +18,10 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import MyPortfolio from "./pages/MyPortfolio";
 import Purchase from "./pages/Purchase";
-import MakeAdmin from "./pages/Dashboard/MakeAdmin";
 import AllUsers from "./pages/Dashboard/AllUsers";
 import RequireAdmin from "./authentication/RequireAdmin";
+import AllOrders from "./pages/Dashboard/AllOrders";
+import AddProducts from "./pages/Dashboard/AddProducts";
 
 function App() {
   return (
@@ -48,7 +48,7 @@ function App() {
           path="all-products"
           element={
             <RequireAuth>
-              <Purchase />
+              <AllProducts />
             </RequireAuth>
           }
         />
@@ -70,6 +70,22 @@ function App() {
             element={
               <RequireAdmin>
                 <AllUsers />
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="all-orders"
+            element={
+              <RequireAdmin>
+                <AllOrders />
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="add-products"
+            element={
+              <RequireAdmin>
+                <AddProducts />
               </RequireAdmin>
             }
           ></Route>

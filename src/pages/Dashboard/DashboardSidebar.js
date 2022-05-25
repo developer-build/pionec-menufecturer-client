@@ -16,20 +16,34 @@ const DashboardSidebar = ({ children }) => {
       </div>
       <div class="drawer-side ">
         <label for="my-drawer-2" class="drawer-overlay"></label>
-        <ul class="menu space-y-3 p-4 overflow-y-auto w-52 bg-accent text-base-content">
+        <ul class="menu space-y-3 p-4 overflow-y-auto w-52 bg-accent text-base-content font-koulen">
           {/* <!-- Sidebar content here --> */}
           <li>
             <NavLink to="/dashboard/my-profile">My Profile</NavLink>
           </li>
-          <li>
-            <NavLink to="/dashboard/my-orders">My Orders</NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/my-reviews">Add Reviews</NavLink>
-          </li>
+          {!admin && (
+            <li>
+              <NavLink to="/dashboard/my-orders">My Orders</NavLink>
+            </li>
+          )}
+          {!admin && (
+            <li>
+              <NavLink to="/dashboard/my-reviews">Add Reviews</NavLink>
+            </li>
+          )}
           {admin && (
             <li>
-              <NavLink to="/dashboard/all-users">All Users</NavLink>
+              <NavLink to="/dashboard/add-products">Add Products</NavLink>
+            </li>
+          )}
+          {admin && (
+            <li>
+              <NavLink to="/dashboard/all-orders">Total Orders</NavLink>
+            </li>
+          )}
+          {admin && (
+            <li>
+              <NavLink to="/dashboard/all-users">Make Admin</NavLink>
             </li>
           )}
         </ul>

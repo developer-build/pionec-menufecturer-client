@@ -64,7 +64,7 @@ const MyOrders = () => {
       <h1 className="text-3xl font-koulen text-center font-semibold uppercase text-primary">
         My Orders
       </h1>
-      <div className="pt-5 px-10 text-white">
+      <div className="pt-5 bg-secondary pb-20 px-10 text-white">
         <div class="overflow-x-auto">
           <table class="table table-zebra w-full">
             {/* <!-- head --> */}
