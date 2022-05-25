@@ -66,12 +66,7 @@ const Navber = () => {
             >
               Contact
             </Link>
-            <Link
-              to="/about"
-              className=" px-5 font-semibold rounded py-1 text-black md:text-white "
-            >
-              About
-            </Link>
+           
             <Link
               to="/my-portfolio"
               className=" px-5 font-semibold rounded py-1 text-black md:text-white "

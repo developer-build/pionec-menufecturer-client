@@ -7,6 +7,7 @@ import SingleTool from "./SingleTool";
 
 const Tools = () => {
   const [tools, setTools] = useState([]);
+  const sortedTools = [...tools].reverse()
   const [loading, setLoading] = useState(true);
   const navigate=useNavigate()
   useEffect(() => {
@@ -32,7 +33,7 @@ const Tools = () => {
           {/* <span className="h-1 bg-accent rounded-full w-20"></span> */}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center py-10">
-          {tools.slice(0, 3).map((tool, index) => (
+          {sortedTools.slice(0, 3).map((tool, index) => (
             <SingleTool key={index} tool={tool}></SingleTool>
           ))}
         </div>

@@ -9,7 +9,7 @@ import Navber from "../shared/Navber";
 import Spinner from "../shared/Spinner";
 const Purchase = () => {
   const [tool, setTool] = useState({});
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState();
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -28,7 +28,10 @@ const Purchase = () => {
   const getQuantity = (event) => {
     const quantityNumber = event.target.value;
     if (quantityNumber < tool.orderQuantity) {
-      toast.error('Order minimum Quality',{id:12,position:'bottom-right'})
+      toast.error("Order minimum Quality", {
+        id: 12,
+        position: "bottom-right",
+      });
     }
     setQuantity(quantityNumber);
   };
@@ -149,7 +152,7 @@ const Purchase = () => {
                     <input
                       type="text"
                       placeholder="Email"
-                      class="input w-full placeholder:text-[15px] py-5 my-3"
+                      class="input w-full placeholder:text-[15px] py-5 mb-3"
                       defaultValue={user.email}
                       readOnly
                       name="email"
@@ -157,23 +160,24 @@ const Purchase = () => {
                     <input
                       type="phone"
                       placeholder="Phone Number"
-                      class="input w-full placeholder:text-[15px] py-5 my-3"
+                      class="input w-full placeholder:text-[15px] py-5 mb-3"
                       name="phone"
                     />
 
-                    <div className="flex items-center gap-3 justify-between">
+                    <div className="flex mb-4 items-center justify-between gap-3">
                       <input
                         onChange={getQuantity}
                         type="number"
                         placeholder="Quantity"
-                        class="input w-2/6 placeholder:text-[15px] py-5 my-3"
+                        class="input  placeholder:text-[15px] py-5 w-full "
                         name="quantity"
+                       
                       />
 
                       <input
                         type="text"
                         placeholder="Where to Ship"
-                        class="input w-4/6 placeholder:text-[15px] py-5 my-3"
+                        class="input  placeholder:text-[15px] py-5 w-full"
                         name="address"
                       />
                     </div>
@@ -183,7 +187,7 @@ const Purchase = () => {
                     // disabled={quantity<tool.orderQuantity}
                     type="submit"
                     className={`btn btn-md w-full ${
-                      quantity < tool.orderQuantity ||
+                      quantity < tool.orderQuantity||
                       quantity > tool.availableQuantity
                         ? "btn-disabled bg-zinc-500"
                         : "btn-primary"

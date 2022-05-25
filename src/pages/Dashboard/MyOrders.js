@@ -20,7 +20,7 @@ const MyOrders = () => {
     isLoading,
     refetch,
   } = useQuery(["ordersCollection", email], () =>
-    fetch(`http://localhost:4000/order?email=${email}`, {
+    fetch(`http://localhost:4000/my-order?email=${email}`, {
       method: "GET",
       headers: {
         authorization: `Bearar ${localStorage.getItem("accessToken")}`,

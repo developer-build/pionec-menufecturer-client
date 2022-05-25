@@ -3,7 +3,12 @@ import React, { useEffect, useState } from "react";
 const AllOrders = () => {
   const [allOrders, setAllOrders] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/order")
+    fetch("http://localhost:4000/order", {
+      method: "GET",
+      headers: {
+        authorization: `Bearar ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setAllOrders(data));
   }, []);
@@ -14,7 +19,7 @@ const AllOrders = () => {
           <h1 className="text-3xl font-koulen text-center font-semibold uppercase text-primary  mb-3">
             Total Orders
           </h1>
-     
+
           <div>
             <div class="overflow-x-auto">
               <table class="table table-zebra w-full">
@@ -22,7 +27,8 @@ const AllOrders = () => {
                   <tr>
                     <th></th>
                     <th>Name</th>
-                    <th>Job</th>
+                    <th>Email</th>
+                    <th>Tools Name</th>
                     <th>Favorite Color</th>
                   </tr>
                 </thead>
@@ -30,8 +36,9 @@ const AllOrders = () => {
                   {allOrders.map((order, index) => (
                     <tr key={order._id}>
                       <th>{index + 1}</th>
+                      <td>{order.name}</td>
+                      <td>{order.email}</td>
                       <td>{order.toolsName}</td>
-                      <td>Quality Control Specialist</td>
                       <td>Blue</td>
                     </tr>
                   ))}
