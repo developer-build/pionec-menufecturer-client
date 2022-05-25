@@ -8,7 +8,7 @@ import img4 from "../assests/imges/icons/Vector-1.png";
 const Footer = () => {
   return (
     <div className="bg-neutral text-white">
-      <footer class="footer pt-10 pb-16  md:pt-14 md:pb-20  container">
+      <footer className="footer pt-10 pb-16  md:pt-14 md:pb-20  container">
         <div className="flex items-start ">
           <img className="w-6 h-6 mt-1" src={mapIcon} alt="" />
           <p>
@@ -17,23 +17,23 @@ const Footer = () => {
           </p>
         </div>
         <div>
-          <span class=" text-lg md:mb-3 font-semibold">Company</span>
-          <a class="link link-hover">About</a>
-          <a class="link link-hover">Projects</a>
-          <a class="link link-hover">Our Tems</a>
-          <a class="link link-hover">Terms condition</a>
-          <a class="link link-hover">Submit listing</a>
+          <span className=" text-lg md:mb-3 font-semibold">Company</span>
+          <a className="link link-hover">About</a>
+          <a className="link link-hover">Projects</a>
+          <a className="link link-hover">Our Tems</a>
+          <a className="link link-hover">Terms condition</a>
+          <a className="link link-hover">Submit listing</a>
         </div>
         <div>
-          <span class=" text-lg md:mb-3 font-semibold">Quick Links</span>
-          <a class="link link-hover">Floor</a>
-          <a class="link link-hover">Rentals</a>
-          <a class="link link-hover">Salse</a>
-          <a class="link link-hover">Contact</a>
-          <a class="link link-hover">Our Blogs</a>
+          <span className=" text-lg md:mb-3 font-semibold">Quick Links</span>
+          <a className="link link-hover">Floor</a>
+          <a className="link link-hover">Rentals</a>
+          <a className="link link-hover">Salse</a>
+          <a className="link link-hover">Contact</a>
+          <a className="link link-hover">Our Blogs</a>
         </div>
         <div>
-          <span class=" text-lg md:mb-3 font-semibold">About Us</span>
+          <span className=" text-lg md:mb-3 font-semibold">About Us</span>
           <p className="w-full lg:w-80">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit.
             Praesentium natus, maiores asperiores obcaecati numquam soluta

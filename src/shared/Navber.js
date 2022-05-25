@@ -17,11 +17,11 @@ const Navber = () => {
           <div className=" flex items-center text-white font-bold text-2xl">
             {pathname.includes("/dashboard") && (
               <label
-                for="my-drawer-2"
-                tabindex="0"
-                class="btn btn-ghost btn-circle lg:hidden"
+                htmlFor="my-drawer-2"
+                tabIndex="0"
+                className="btn btn-ghost btn-circle lg:hidden"
               >
-                <MenuAlt3Icon className="w-10 h-10"></MenuAlt3Icon>
+                <MenuAlt3Icon className="w-8 h-8"></MenuAlt3Icon>
               </label>
             )}
             POINEC
@@ -30,7 +30,9 @@ const Navber = () => {
             {open ? (
               <XIcon className="w-10 h-10 absolute right-3 top-[12px] cursor-pointer md:hidden"></XIcon>
             ) : (
-              <MenuAlt1Icon className="w-10 h-10 absolute right-3 top-2 cursor-pointer md:hidden"></MenuAlt1Icon>
+              <MenuAlt1Icon
+                className={`w-10 h-10 absolute right-3 top-2  cursor-pointer md:hidden`}
+              ></MenuAlt1Icon>
             )}
           </div>
           <div
@@ -75,16 +77,16 @@ const Navber = () => {
               Portfolio
             </Link>
             {user ? (
-              <div class="dropdown self-center dropdown-end  ">
+              <div className="dropdown self-center dropdown-end  ">
                 <label
-                  tabindex="0"
-                  class="  px-4 font-semibold rounded py-2  bg-orange-600 text-gray-900"
+                  tabIndex="0"
+                  className="  px-4 font-semibold rounded py-2  bg-orange-600 text-gray-900"
                 >
                   Profile
                 </label>
                 <ul
-                  tabindex="0"
-                  class="dropdown-content menu space-y-2 rounded-lg top-8  px-2 py-4 shadow bg-base-100  w-44 "
+                  tabIndex="0"
+                  className="dropdown-content menu space-y-2 rounded-lg top-8  px-2 py-4 shadow bg-base-100  w-44 "
                 >
                   <li>
                     <Link

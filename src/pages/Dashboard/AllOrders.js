@@ -8,7 +8,7 @@ const AllOrders = () => {
     data: allOrders,
     refetch,
   } = useQuery("shippingStatus", () =>
-    fetch(`http://localhost:4000/order`, {
+    fetch(`https://tranquil-earth-82270.herokuapp.com/order`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -19,7 +19,7 @@ const AllOrders = () => {
     return <Spinner />;
   }
   const updateStatus = (id) => {
-    fetch(`http://localhost:4000/shipping-order/${id}`, {
+    fetch(`https://tranquil-earth-82270.herokuapp.com/shipping-order/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -42,8 +42,8 @@ const AllOrders = () => {
           </h1>
 
           <div>
-            <div class="overflow-x-auto">
-              <table class="table table-zebra w-full">
+            <div className="overflow-x-auto">
+              <table className="table table-zebra w-full">
                 <thead>
                   <tr>
                     <th></th>
@@ -77,9 +77,11 @@ const AllOrders = () => {
                             Pending
                           </button>
                         )}
-                        {
-                          order.ship&& <span className="text-secondary font-koulen font-bold">Shipped</span>
-                        }
+                        {order.ship && (
+                          <span className="text-secondary font-koulen font-bold">
+                            Shipped
+                          </span>
+                        )}
                       </td>
                     </tr>
                   ))}

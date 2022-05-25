@@ -23,8 +23,8 @@ const OrderRow = ({ order, index, setDeleteOrder }) => {
           <>
             <label
               onClick={() => setDeleteOrder(order)}
-              for="my-modal-6"
-              class="btn modal-button btn-sm btn-error"
+              htmlFor="my-modal-6"
+              className="btn modal-button btn-sm btn-error"
             >
               Cancel
             </label>
@@ -41,9 +41,7 @@ const OrderRow = ({ order, index, setDeleteOrder }) => {
       <td className="capitalize font-semibold text-gray-600">
         {order.price && order.paid && (
           <>
-
             <p>
-          
               <span className="text-success">{order.transactionId}</span>
             </p>
           </>

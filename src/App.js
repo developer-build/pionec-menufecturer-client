@@ -5,7 +5,6 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import MyOrders from "./pages/Dashboard/MyOrders";
 import MyProfile from "./pages/Dashboard/MyProfile";
 
-
 import NotFound from "./pages/NotFound";
 import { Toaster } from "react-hot-toast";
 import Payment from "./pages/Dashboard/Payment";
@@ -26,6 +25,7 @@ import ManageProducts from "./pages/Dashboard/ManageProducts";
 function App() {
   return (
     <>
+      {/* <p className="text-5xl text-primary">{`${process.env.REACT_APP_apiKey}`}</p> */}
       <Routes>
         {/* --------Public Route------------- */}
         <Route path="/" element={<Home />} />

@@ -34,7 +34,7 @@ const AddProducts = () => {
             img: doctorImg,
           };
 
-          fetch("http://localhost:4000/tool", {
+          fetch("https://tranquil-earth-82270.herokuapp.com/tool", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -60,8 +60,8 @@ const AddProducts = () => {
   }
   return (
     <div className="bg-secondary  py-8 h-full">
-      <div>
-        <div className="w-5/12  mx-auto bg-accent p-4  rounded-lg">
+      <div className="px-5 bg-secondary pb-10">
+        <div className="w-full md:w-7/12 lg:w-5/12  mx-auto bg-accent p-4  rounded-lg">
           <h1 className="text-center text-2xl font-semibold uppercase font-koulen  pt-2 pb-5 text-primary">
             Add a Product
           </h1>
@@ -152,7 +152,7 @@ const AddProducts = () => {
             </div>
             <textarea
               name="description"
-              class="textarea block mx-auto resize-none bg-white text-accent h-32 w-full  mt-5 textarea-primary focus:outline-none  font-koulen"
+              className="textarea block mx-auto resize-none bg-white text-accent h-32 w-full  mt-5 textarea-primary focus:outline-none  font-koulen"
               placeholder="Add product description"
               {...register("description", {
                 required: {

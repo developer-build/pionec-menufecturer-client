@@ -67,7 +67,7 @@ const Signup = () => {
                   <input
                     type="text"
                     placeholder="Name"
-                    class="input w-full placeholder:text-[15px] py-5 mb-3 "
+                    className="input w-full placeholder:text-[15px] py-5 mb-3 "
                     {...register("name", {
                       required: {
                         value: true,
@@ -83,7 +83,7 @@ const Signup = () => {
                   <input
                     type="text"
                     placeholder="Email"
-                    class="input w-full placeholder:text-[15px] py-5 my-3"
+                    className="input w-full placeholder:text-[15px] py-5 my-3"
                     {...register("email", {
                       required: {
                         value: true,
@@ -108,7 +108,7 @@ const Signup = () => {
                   <input
                     type="password"
                     placeholder="Password"
-                    class="input w-full placeholder:text-[15px] py-5 my-3"
+                    className="input w-full placeholder:text-[15px] py-5 my-3"
                     {...register("password", {
                       required: {
                         value: true,

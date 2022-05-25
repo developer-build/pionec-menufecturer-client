@@ -95,9 +95,9 @@ const Purchase = () => {
             <h1 className="text-center text-4xl font-koulen font-semibold uppercase pb-16 text-accent">
               Purchase <span className="text-primary">tools</span>
             </h1>
-            <div className="w-full gap-5   flex justify-between items-start ">
-              <div className="w-4/6 h-full">
-                <div className="flex items-center bg-white py-10 px-5 rounded-xl  justify-center gap-5">
+            <div className="w-full gap-5 flex flex-col md:flex-row justify-between items-start ">
+              <div className=" w-full md:w-4/6 h-full">
+                <div className="flex flex-col md:flex-row items-center bg-white py-10 px-5 rounded-xl  justify-center gap-5">
                   <img src={tool.img} className="w-80 h-80" alt="" />
                   <div className="text-accent">
                     <h1 className="font-semibold text-3xl mb-5">
@@ -134,7 +134,7 @@ const Purchase = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-96  px-4 bg-accent pb-3  rounded-xl ">
+              <div className="w-full md:w-96  px-4 bg-accent pb-3  rounded-xl ">
                 <h1 className="text-center text-4xl font-semibold  py-5  text-white">
                   Order Info
                 </h1>
@@ -143,7 +143,7 @@ const Purchase = () => {
                     <input
                       type="text"
                       placeholder="Name"
-                      class="input w-full placeholder:text-[15px] py-5 mb-3 "
+                      className="input w-full placeholder:text-[15px] py-5 mb-3 "
                       defaultValue={user.displayName}
                       readOnly
                       name="name"
@@ -152,7 +152,7 @@ const Purchase = () => {
                     <input
                       type="text"
                       placeholder="Email"
-                      class="input w-full placeholder:text-[15px] py-5 mb-3"
+                      className="input w-full placeholder:text-[15px] py-5 mb-3"
                       defaultValue={user.email}
                       readOnly
                       name="email"
@@ -160,7 +160,7 @@ const Purchase = () => {
                     <input
                       type="phone"
                       placeholder="Phone Number"
-                      class="input w-full placeholder:text-[15px] py-5 mb-3"
+                      className="input w-full placeholder:text-[15px] py-5 mb-3"
                       name="phone"
                     />
 
@@ -169,15 +169,14 @@ const Purchase = () => {
                         onChange={getQuantity}
                         type="number"
                         placeholder="Quantity"
-                        class="input  placeholder:text-[15px] py-5 w-full "
+                        className="input  placeholder:text-[15px] py-5 w-full "
                         name="quantity"
-                       
                       />
 
                       <input
                         type="text"
                         placeholder="Where to Ship"
-                        class="input  placeholder:text-[15px] py-5 w-full"
+                        className="input  placeholder:text-[15px] py-5 w-full"
                         name="address"
                       />
                     </div>
@@ -187,7 +186,7 @@ const Purchase = () => {
                     // disabled={quantity<tool.orderQuantity}
                     type="submit"
                     className={`btn btn-md w-full ${
-                      quantity < tool.orderQuantity||
+                      quantity < tool.orderQuantity ||
                       quantity > tool.availableQuantity
                         ? "btn-disabled bg-zinc-500"
                         : "btn-primary"

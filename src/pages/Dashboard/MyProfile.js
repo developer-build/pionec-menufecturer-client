@@ -23,12 +23,15 @@ const MyProfile = () => {
     data: currentUser,
     refetch,
   } = useQuery("users", () =>
-    fetch(`http://localhost:4000/current-user?email=${user?.email}`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    }).then((res) => res.json())
+    fetch(
+      `https://tranquil-earth-82270.herokuapp.com/current-user?email=${user?.email}`,
+      {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    ).then((res) => res.json())
   );
 
   if (isLoading) {
@@ -44,8 +47,8 @@ const MyProfile = () => {
         </h1> */}
         <div className="w-5/6  bg-secondary h-full pb-10 mx-auto">
           <div className=" pt-10 flex-col ">
-            <div class="avatar online">
-              <div class="w-32 rounded-full">
+            <div className="avatar online">
+              <div className="w-32 rounded-full">
                 <img src={defaultImg} alt="" />
               </div>
             </div>
@@ -130,8 +133,8 @@ const MyProfile = () => {
             <div className="m-auto mt-10">
               <label
                 onClick={() => setOpenModal(true)}
-                for="update-profile"
-                class="btn modal-button"
+                htmlFor="update-profile"
+                className="btn modal-button"
               >
                 Update profile
               </label>

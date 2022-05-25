@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navber from "../shared/Navber";
 import googleImg from "../assests/imges/icons/google-logo-png-29546.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -24,9 +24,11 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  if (token) {
-    navigate(from, { replace: true });
-  }
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [from,navigate,token]);
   if (loading || gLoading) {
     return <Spinner />;
   }
@@ -71,7 +73,7 @@ const Login = () => {
                   <input
                     type="email"
                     placeholder="Email"
-                    class="input w-full placeholder:text-[15px] mb-3 py-5"
+                    className="input w-full placeholder:text-[15px] mb-3 py-5"
                     {...register("email", {
                       required: {
                         value: true,
@@ -97,7 +99,7 @@ const Login = () => {
                   <input
                     type="password"
                     placeholder="Password"
-                    class="input w-full placeholder:text-[15px] py-5 my-3 "
+                    className="input w-full placeholder:text-[15px] py-5 my-3 "
                     {...register("password", {
                       required: {
                         value: true,

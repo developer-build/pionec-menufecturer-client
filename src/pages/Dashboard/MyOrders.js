@@ -20,12 +20,15 @@ const MyOrders = () => {
     isLoading,
     refetch,
   } = useQuery(["ordersCollection", email], () =>
-    fetch(`http://localhost:4000/my-order?email=${email}`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearar ${localStorage.getItem("accessToken")}`,
-      },
-    }).then((res) => {
+    fetch(
+      `https://tranquil-earth-82270.herokuapp.com/my-order?email=${email}`,
+      {
+        method: "GET",
+        headers: {
+          authorization: `Bearar ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    ).then((res) => {
       if (res.status === 401 || res.status === 403) {
         signOut(auth);
         localStorage.removeItem("accessToken");
@@ -44,8 +47,8 @@ const MyOrders = () => {
         My Orders
       </h1>
       <div className="pt-5 bg-secondary pb-20 px-10 text-white">
-        <div class="overflow-x-auto">
-          <table class="table table-zebra w-full">
+        <div className="overflow-x-auto">
+          <table className="table table-zebra w-full">
             {/* <!-- head --> */}
             <thead>
               <tr>

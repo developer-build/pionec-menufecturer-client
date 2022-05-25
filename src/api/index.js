@@ -1,6 +1,6 @@
 import axios from "axios";
 const fetcher = axios.create({
-  baseURL: "http://localhost:4000/",
+  baseURL: "https://tranquil-earth-82270.herokuapp.com/",
 });
 
 export default fetcher;

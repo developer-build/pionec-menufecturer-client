@@ -6,7 +6,7 @@ import auth from "../../shared/firebase.init";
 
 const AddAReview = () => {
   const [rating, setRating] = useState(0);
-    
+
   const [user] = useAuthState(auth);
   const increase = () => {
     if (rating < 5) {
@@ -28,7 +28,7 @@ const AddAReview = () => {
         name: user.displayName,
         address: "CEO, Manpol",
       };
-      fetch("http://localhost:4000/review", {
+      fetch("https://tranquil-earth-82270.herokuapp.com/review", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -41,11 +41,11 @@ const AddAReview = () => {
       toast.success("Thank's For Reviews!");
       event.target.reset();
     } else if (!rating && !review) {
-      toast.error("Please add Ratings & Reviews!",{id:8});
+      toast.error("Please add Ratings & Reviews!", { id: 8 });
     } else if (!rating) {
-      toast.error("Please add Ratings!",{id:9});
+      toast.error("Please add Ratings!", { id: 9 });
     } else if (!review) {
-      toast.error("Please add Review!",{id:10});
+      toast.error("Please add Review!", { id: 10 });
     }
   };
 
@@ -89,7 +89,7 @@ const AddAReview = () => {
         <form onSubmit={postReview}>
           <textarea
             name="review"
-            class="textarea block mx-auto resize-none bg-white h-36 w-full  mt-5 textarea-primary focus:outline-none  font-koulen"
+            className="textarea block mx-auto resize-none bg-white h-36 w-full  mt-5 textarea-primary focus:outline-none  font-koulen"
             placeholder="Please Give A Review"
           ></textarea>
           <button className="btn btn-accent text-white btn-md mt-5">

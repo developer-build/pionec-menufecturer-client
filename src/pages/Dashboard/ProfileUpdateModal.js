@@ -17,14 +17,17 @@ const ProfileUpdateModal = ({ setOpenModal, refetch }) => {
     const github = event.target.github.value;
     const data = { phone, address, study, fb, insta, linkdin, github };
     if (phone || address || study || fb || insta || linkdin || github) {
-      fetch(`http://localhost:4000/current-user/${email}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify(data),
-      })
+      fetch(
+        `https://tranquil-earth-82270.herokuapp.com/current-user/${email}`,
+        {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+          body: JSON.stringify(data),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data) {

@@ -55,7 +55,7 @@ const MyPortfolio = () => {
                 <div className="flex flex-col space-y-1">
                   <span className="text-gray-600">HTML</span>
                   <progress
-                    class="progress progress-primary w-72"
+                    className="progress progress-primary w-72"
                     value="95"
                     max="100"
                     id="html"
@@ -64,7 +64,7 @@ const MyPortfolio = () => {
                 <div className="flex flex-col space-y-1 ">
                   <span className="text-gray-600">CSS</span>
                   <progress
-                    class="progress progress-primary w-72"
+                    className="progress progress-primary w-72"
                     value="90"
                     max="100"
                     id="html"
@@ -73,7 +73,7 @@ const MyPortfolio = () => {
                 <div className="flex flex-col space-y-1">
                   <span className="text-gray-600">Javascript</span>
                   <progress
-                    class="progress progress-primary w-72"
+                    className="progress progress-primary w-72"
                     value="80"
                     max="100"
                     id="html"
@@ -82,7 +82,7 @@ const MyPortfolio = () => {
                 <div className="flex flex-col space-y-1">
                   <span className="text-gray-600">React Js</span>
                   <progress
-                    class="progress progress-primary w-72"
+                    className="progress progress-primary w-72"
                     value="80"
                     max="100"
                     id="html"
@@ -91,7 +91,7 @@ const MyPortfolio = () => {
                 <div className="flex flex-col space-y-1">
                   <span className="text-gray-600">MongoDB Js</span>
                   <progress
-                    class="progress progress-primary w-72"
+                    className="progress progress-primary w-72"
                     value="50"
                     max="100"
                     id="html"
@@ -100,7 +100,7 @@ const MyPortfolio = () => {
                 <div className="flex flex-col space-y-1">
                   <span className="text-gray-600">Express Js</span>
                   <progress
-                    class="progress progress-primary w-72"
+                    className="progress progress-primary w-72"
                     value="50"
                     max="60"
                     id="html"

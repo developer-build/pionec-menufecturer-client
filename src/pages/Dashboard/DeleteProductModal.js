@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 const DeleteProductModal = ({ product, setDeleteProduct, refetch }) => {
   const { _id, name } = product;
   const deleteProduct = () => {
-    fetch(`http://localhost:4000/delete-tool/${_id}`, {
+    fetch(`https://tranquil-earth-82270.herokuapp.com/delete-tool/${_id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

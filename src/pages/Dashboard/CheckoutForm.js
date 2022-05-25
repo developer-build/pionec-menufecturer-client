@@ -11,7 +11,7 @@ const CheckoutForm = ({ tool }) => {
   const [clientSecret, setClientSecret] = useState("");
   const { _id, price, name, email } = tool;
   useEffect(() => {
-    fetch("http://localhost:4000/create-payment-intent", {
+    fetch("https://tranquil-earth-82270.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -71,7 +71,7 @@ const CheckoutForm = ({ tool }) => {
         tools: _id,
         transactionId: paymentIntent.id,
       };
-      fetch(`http://localhost:4000/order/${_id}`, {
+      fetch(`https://tranquil-earth-82270.herokuapp.com/order/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -107,7 +107,9 @@ const CheckoutForm = ({ tool }) => {
           <>
             <p className="text-sm text-accent font-semibold mt-2 ">
               Transection Id :{" "}
-              <span className="text-success font-bold font-koulen">{transectionId}</span>
+              <span className="text-success font-bold font-koulen">
+                {transectionId}
+              </span>
             </p>
           </>
         )}
@@ -115,7 +117,7 @@ const CheckoutForm = ({ tool }) => {
           <p className="text-sm text-error mb-0 mt-3 ">{cardError}</p>
         )}
         <button
-          className={`btn btn-md ${cardError||success ? "mt-4" : "mt-12"} `}
+          className={`btn btn-md ${cardError || success ? "mt-4" : "mt-12"} `}
           type="submit"
           disabled={!stripe || !clientSecret || success}
         >

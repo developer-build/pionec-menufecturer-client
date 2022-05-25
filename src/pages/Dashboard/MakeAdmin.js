@@ -9,7 +9,7 @@ const MakeAdmin = () => {
   //   const [adminUser, setAdminUser] = useState([]);
   //   const [user, setUser] = useState([]);
   //   useEffect(() => {
-  //     fetch(`http://localhost:4000/user`, {
+  //     fetch(`https://tranquil-earth-82270.herokuapp.com/user`, {
   //       method: "GET",
   //       headers: {
   //         authorization: `Bearar ${localStorage.getItem("accessToken")}`,
@@ -21,10 +21,10 @@ const MakeAdmin = () => {
   const makeAdmin = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
-      if (!email) {
-        toast.error('Hello')
+    if (!email) {
+      toast.error("Hello");
     } else {
-      fetch(`http://localhost:4000/user/admin/${email}`, {
+      fetch(`https://tranquil-earth-82270.herokuapp.com/user/admin/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -41,7 +41,7 @@ const MakeAdmin = () => {
           Make An Admin
         </h1>
         <div className="flex items-center justify-center">
-          <div class="">
+          <div className="">
             <label htmlFor="" className="font-koulen mb-2 block pl-1">
               Email
             </label>
@@ -50,7 +50,7 @@ const MakeAdmin = () => {
                 type="Email"
                 name="email"
                 placeholder="jhon@gmail.com"
-                class="input input-bordered w-80"
+                className="input input-bordered w-80"
               />
               <button type="submit" className="btn btn-primary">
                 Submit

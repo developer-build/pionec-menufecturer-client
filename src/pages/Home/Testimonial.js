@@ -12,9 +12,9 @@ import img2 from "../../assests/imges/cartoon.png";
 
 const Testimonials = () => {
   const [allReviews, setAllReviews] = useState([]);
-  const sortedReview = [...allReviews].reverse()
+  const sortedReview = [...allReviews].reverse();
   useEffect(() => {
-    fetch("http://localhost:4000/review")
+    fetch("https://tranquil-earth-82270.herokuapp.com/review")
       .then((res) => res.json())
       .then((data) => setAllReviews(data));
   }, []);
@@ -29,7 +29,7 @@ const Testimonials = () => {
       </div>
       <div className="flex justify-center items-center gap-2 mb-16">
         <span className=" h-1 bg-gray-600 rounded-full w-16"></span>
-        <progress class="progress progress-primary  w-24 h-1"></progress>
+        <progress className="progress progress-primary  w-24 h-1"></progress>
         <span className="h-1 bg-gray-600 rounded-full w-16"></span>
       </div>
       <div className="container">
@@ -61,7 +61,7 @@ const Testimonials = () => {
           className="mySwiper h-72"
         >
           {sortedReview.map((r) => (
-            <SwiperSlide>
+            <SwiperSlide key={r._id}>
               <div className="p-5 rounded-xl h-52 md:w-[370px] mx-auto bg-white relative">
                 <div className="flex items-center  gap-5">
                   <img src={img2} className="w-14 h-14" alt="" />
@@ -83,32 +83,32 @@ const Testimonials = () => {
                     ? r.review
                     : r.review.slice(0, 108) + "..."}
                 </p>
-                <div class="rating absolute bottom-4 left-5">
+                <div className="rating absolute bottom-4 left-5">
                   <input
                     type="radio"
                     name="rating-2"
-                    class="mask mask-star-2 w-4 bg-orange-400"
+                    className="mask mask-star-2 w-4 bg-orange-400"
                   />
 
                   <input
                     type="radio"
                     name="rating-2"
-                    class="mask mask-star-2 w-4 bg-orange-400"
+                    className="mask mask-star-2 w-4 bg-orange-400"
                   />
                   <input
                     type="radio"
                     name="rating-2"
-                    class="mask mask-star-2 w-4 bg-orange-400"
+                    className="mask mask-star-2 w-4 bg-orange-400"
                   />
                   <input
                     type="radio"
                     name="rating-2"
-                    class="mask mask-star-2 w-4 bg-orange-400"
+                    className="mask mask-star-2 w-4 bg-orange-400"
                   />
                   <input
                     type="radio"
                     name="rating-2"
-                    class="mask mask-star-2 w-4 bg-orange-400"
+                    className="mask mask-star-2 w-4 bg-orange-400"
                     defaultChecked
                   />
                 </div>
