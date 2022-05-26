@@ -34,10 +34,9 @@ const ProfileUpdateModal = ({ setOpenModal, refetch }) => {
             refetch();
             toast.success("Profile Updated Successfuly");
             setOpenModal(false);
+            event.target.reset();
           }
         });
-
-      event.target.reset();
     }
   };
   return (
