@@ -125,26 +125,33 @@ const MyPortfolio = () => {
                       Family-Doc
                     </span>{" "}
                   </p>
-                  <p className="texpt-sm">
+                  <p className="text-sm">
                     {" "}
                     Live Site Link:
-                    <span className="lowercase  text-info">
+                    <a
+                      href="https://family-doctor-3c691.web.app"
+                      className="lowercase text-sm text-info"
+                    >
                       {" "}
                       https://family-doctor-3c691.web.app
-                    </span>{" "}
+                    </a>{" "}
                   </p>
-                  <p className="texpt-sm">
+
+                  <p className="text-sm">
                     {" "}
                     GithubLink:
-                    <span className="lowercase  text-info">
+                    <a
+                      href="https://github.com/programming-hero-web-course-4/independent-service-provider-muntasirahmeed"
+                      className="lowercase text-sm text-info"
+                    >
                       {" "}
                       https://github.com/programming-hero-web-course-4/independent-service-provider-muntasirahmeed
-                    </span>{" "}
+                    </a>{" "}
                   </p>
                 </div>
                 <div className="mt-4 w-full">
                   <h1 className="text-2xl mb-2">Project-2</h1>
-                  <p className="texpt-sm">
+                  <p className="text-sm">
                     {" "}
                     Name:
                     <span className="uppercase font-bold text-primary">
@@ -155,18 +162,24 @@ const MyPortfolio = () => {
                   <p>
                     {" "}
                     Live Site Link:
-                    <span className="lowercase  text-info">
+                    <a
+                      href="https://car-wearhouse.web.app/"
+                      className="lowercase text-sm text-info"
+                    >
                       {" "}
                       https://car-wearhouse.web.app/
-                    </span>{" "}
+                    </a>{" "}
                   </p>
                   <p className="text-sm overflow-clip">
                     {" "}
                     GithubLink:
-                    <span className="lowercase text-info">
+                    <a
+                      href="https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-muntasirahmeed"
+                      className="lowercase text-info"
+                    >
                       {" "}
                       https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-muntasirahmeed
-                    </span>{" "}
+                    </a>{" "}
                   </p>
                 </div>
                 <div className="mt-4">
@@ -179,22 +192,27 @@ const MyPortfolio = () => {
                       Review Bazar
                     </span>{" "}
                   </p>
-                  <p className="texp-sm">
+                  <p className="text-sm">
                     {" "}
                     Live Site Link:
-                    <span className="lowercase  text-info">
+                    <a
+                      href="https://tech-info-assignment9.netlify.app/"
+                      className="lowercase text-sm text-info"
+                    >
                       {" "}
                       https://tech-info-assignment9.netlify.app/
-                    </span>{" "}
+                    </a>{" "}
                   </p>
                   <p className="texp-sm">
                     {" "}
                     GithubLink:
-                    <span className="lowercase  text-info">
+                    <a
+                      href="https://github.com/programming-hero-web-course-4/product-analysis-website-muntasirahmeed"
+                      className="lowercase text-sm text-info"
+                    >
                       {" "}
-                      https://github.com/programming-hero-web-course-4 <br />{" "}
-                      product-analysis-website-muntasirahmeed
-                    </span>{" "}
+                      https://github.com/programming-hero-web-course-4/product-analysis-website-muntasirahmeed
+                    </a>{" "}
                   </p>
                 </div>
               </div>
@@ -212,14 +230,19 @@ const MyPortfolio = () => {
               </h1>
               <h1 className="bg-accent text-white shadow-sm py-5 px-3 rounded-xl mb-3">
                 <span className="font-bold">SSC </span>: <span>2021</span>
-                <p  className="text-gray-400">
-                  I was a madrasha student . that's why i don't was a ssc candidate. i was a Dakhil Candidate. i allhamdulillah i Got GPA 5 in my Dakhil Exam.
+                <p className="text-gray-400">
+                  I was a madrasha student . that's why i don't was a ssc
+                  candidate. i was a Dakhil Candidate. i allhamdulillah i Got
+                  GPA 5 in my Dakhil Exam.
                 </p>
               </h1>
               <h1 className="bg-accent text-white shadow-sm py-5 px-3 rounded-xl mb-3">
-                <span className="font-bold">Dinloma in Computer Science</span>: <span>2021-2024</span>
+                <span className="font-bold">Dinloma in Computer Science</span>:{" "}
+                <span>2021-2024</span>
                 <p className="text-gray-400">
-                  After Completing My Dakhil exam i realized that i have to do something in tech field. and also love this site. that's why i admitted dimploma in computer Science.
+                  After Completing My Dakhil exam i realized that i have to do
+                  something in tech field. and also love this site. that's why i
+                  admitted dimploma in computer Science.
                 </p>
               </h1>
             </div>

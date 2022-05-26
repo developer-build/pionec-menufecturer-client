@@ -19,7 +19,7 @@ const ProductsRow = ({ index, product, setDeleteProduct }) => {
       <td className="capitalize font-semibold text-gray-600">
         <label
           onClick={() => setDeleteProduct(product)}
-          htmlFor="my-modal-7"
+          htmlFor="delete-product-modal"
           className="btn  btn-sm btn-error modal-button"
         >
           delete

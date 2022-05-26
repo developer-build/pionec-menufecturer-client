@@ -22,7 +22,7 @@ const DeleteProductModal = ({ product, setDeleteProduct, refetch }) => {
   };
   return (
     <div className=" text-secondary">
-      <input type="checkbox" id="my-modal-7" className="modal-toggle" />
+      <input type="checkbox" id="delete-product-modal" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box bg-neutral">
           <h3 className="font-semibold text-gray-300 text-center font-koulen text-4xl capitalize ">
@@ -30,11 +30,11 @@ const DeleteProductModal = ({ product, setDeleteProduct, refetch }) => {
           </h3>
           <p className="py-4 text-center text-gray-500 text-xl">
             You want to delete <span className="text-primary">{name}</span>{" "}
-            Orders!
+            Stocks!
           </p>
           <div className="flex justify-center modal-action">
             <label
-              htmlFor="my-modal-6"
+              htmlFor="delete-product-modal"
               className="btn bg-green-700 hover:bg-green-800 text-gray-300"
             >
               Close Action
@@ -43,7 +43,7 @@ const DeleteProductModal = ({ product, setDeleteProduct, refetch }) => {
               onClick={deleteProduct}
               className="btn  btn-md text-gray-300  bg-rose-700 hover:bg-rose-800"
             >
-              Cancel Order
+              Delete Tools
             </button>
           </div>
         </div>

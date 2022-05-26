@@ -13,8 +13,8 @@ const SingleTool = ({ tool }) => {
     description,
   } = tool;
   return (
-    <div className="bg-white p-2 border-[1px] border-secondary rounded-xl">
-      <div className="bg-white  text-neutral rounded-xl">
+    <div className="bg-white p-2 border-[1px] w-[350px] border-secondary rounded-xl">
+      <div className="bg-white  text-neutral rounded-xl relative">
         <div className="p-2 rounded-lg border-[2px] border-secondary bg-white">
           <img className="w-full  h-72  mb-2 p-4 " src={img} alt="" />
         </div>
@@ -45,12 +45,12 @@ const SingleTool = ({ tool }) => {
             <span className="font-bold text-primary text-[16px]">$25</span>
           </h2>
         </div>
-        <p className="text-gray-500 text-sm mt-3 ">
+        <p className="text-gray-500 text-sm mt-3 h-14 overflow-ellipsis ">
           {description.slice(0, 135)}
         </p>
         <button
           onClick={() => navigate(`/purchase/${_id}`)}
-          className="btn bg-neutral w-full mt-4 text-white"
+          className="btn bg-neutral  w-full mt-4 text-white"
         >
           Place Order
         </button>

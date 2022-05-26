@@ -27,7 +27,8 @@ const ManageProducts = () => {
       }
       return res.json();
     })
-  );
+    );
+  const srotedProducts = [...products].reverse()
   if (isLoading) {
     return <Spinner />;
   }
@@ -51,7 +52,7 @@ const ManageProducts = () => {
             </thead>
             <tbody>
               {/* <!-- row 1 --> */}
-              {products.map((product, index) => (
+              {srotedProducts.map((product, index) => (
                 <ProductsRow
                   key={index}
                   index={index}

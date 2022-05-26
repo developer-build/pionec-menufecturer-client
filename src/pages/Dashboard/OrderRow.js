@@ -23,7 +23,7 @@ const OrderRow = ({ order, index, setDeleteOrder }) => {
           <>
             <label
               onClick={() => setDeleteOrder(order)}
-              htmlFor="my-modal-6"
+              htmlFor="delete-order"
               className="btn modal-button btn-sm btn-error"
             >
               Cancel

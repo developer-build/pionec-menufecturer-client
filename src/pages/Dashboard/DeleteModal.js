@@ -15,7 +15,7 @@ const DeleteModal = ({ order, setDeleteOrder, refetch }) => {
   };
   return (
     <div className=" text-secondary">
-      <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+      <input type="checkbox" id="delete-order" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box bg-neutral">
           <h3 className="font-semibold text-gray-300 text-center font-koulen text-4xl capitalize ">
@@ -27,7 +27,7 @@ const DeleteModal = ({ order, setDeleteOrder, refetch }) => {
           </p>
           <div className="flex justify-center modal-action">
             <label
-              htmlFor="my-modal-7"
+              htmlFor="delete-order"
               className="btn bg-green-700 hover:bg-green-800 text-gray-300"
             >
               Close Action
