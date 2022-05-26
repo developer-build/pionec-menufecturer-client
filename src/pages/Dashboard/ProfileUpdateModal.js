@@ -16,7 +16,7 @@ const ProfileUpdateModal = ({ setOpenModal, refetch }) => {
     const linkdin = event.target.linkdin.value;
     const github = event.target.github.value;
     const data = { phone, address, study, fb, insta, linkdin, github };
-    if (phone || address || study || fb || insta || linkdin || github) {
+    if (phone && address && study && fb && insta && linkdin && github) {
       fetch(
         `https://tranquil-earth-82270.herokuapp.com/current-user/${email}`,
         {
@@ -37,6 +37,9 @@ const ProfileUpdateModal = ({ setOpenModal, refetch }) => {
             event.target.reset();
           }
         });
+    }
+    else {
+      toast.error('Please Fill Up Full Form',{id:25})
     }
   };
   return (
