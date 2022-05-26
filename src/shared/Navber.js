@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "./firebase.init";
 import { signOut } from "firebase/auth";
+import CustomLink from "./CustomLink";
 
 const Navber = () => {
   const [open, setOpen] = useState(false);
@@ -24,7 +25,7 @@ const Navber = () => {
                 <MenuAlt3Icon className="w-8 h-8"></MenuAlt3Icon>
               </label>
             )}
-            POINEC
+            <span onClick={()=>navigate('/')} className='cursor-pointer'>POINEC</span>
           </div>
           <div onClick={() => setOpen(!open)}>
             {open ? (
@@ -42,40 +43,40 @@ const Navber = () => {
                 : "top-[-490px] md:opacity-100 opacity-0 transition-all ease-in"
             }`}
           >
-            <Link
+            <CustomLink
               to="/"
               className=" px-5 font-semibold rounded py-1 text-black md:text-white "
             >
               Home
-            </Link>
+            </CustomLink>
             {user && (
-              <Link
+              <CustomLink
                 to="/dashboard/my-profile"
                 className=" px-5 font-semibold rounded py-1 text-black md:text-white"
               >
                 Dashboard
-              </Link>
+              </CustomLink>
             )}
 
-            <Link
+            <CustomLink
               to="/blogs"
               className=" px-5 font-semibold rounded py-1 text-black md:text-white "
             >
               Blogs
-            </Link>
-            <Link
+            </CustomLink>
+            <CustomLink
               to="/contact"
               className=" px-5 font-semibold rounded py-1 text-black md:text-white "
             >
               Contact
-            </Link>
+            </CustomLink>
 
-            <Link
+            <CustomLink
               to="/my-portfolio"
               className=" px-5 font-semibold rounded py-1 text-black md:text-white "
             >
               Portfolio
-            </Link>
+            </CustomLink>
             {user ? (
               <div className="dropdown self-center dropdown-end  ">
                 <label
@@ -89,12 +90,12 @@ const Navber = () => {
                   className="dropdown-content menu space-y-2 rounded-lg top-8  px-2 py-4 shadow bg-base-100  w-44 "
                 >
                   <li>
-                    <Link
+                    <CustomLink
                       to="/dashboard/my-profile"
                       className="bg-secondary rounded-lg text-accent flex items-center justify-center "
                     >
                       {user.displayName}
-                    </Link>
+                    </CustomLink>
                   </li>
                   <li>
                     <button
@@ -110,12 +111,12 @@ const Navber = () => {
                 </ul>
               </div>
             ) : (
-              <Link
+              <CustomLink
                 to="/login"
                 className=" px-5 font-semibold rounded py-2  bg-orange-600 text-gray-900"
               >
                 Login
-              </Link>
+              </CustomLink>
             )}
             {/* <button
               className=" px-4 font-semibold rounded py-1  bg-orange-600 text-gray-900"

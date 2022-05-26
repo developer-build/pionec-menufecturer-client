@@ -9,7 +9,7 @@ function CustomLink({ children, to, ...props }) {
   
     <div>
       <Link
-        style={{ color: match ? "  #ffffff" : "  #000000 " }}
+        style={{ color: match ? " #EA580C" : "  #ffffff " }}
         to={to}
         {...props}
       >
