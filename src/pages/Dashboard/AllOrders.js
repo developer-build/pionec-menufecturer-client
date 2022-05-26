@@ -1,4 +1,5 @@
 import React from "react";
+import toast from "react-hot-toast";
 import { useQuery } from "react-query";
 import Spinner from "../../shared/Spinner";
 const AllOrders = () => {
@@ -29,6 +30,7 @@ const AllOrders = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data) {
+          toast.success('Product is on the way')
           refetch();
         }
       });

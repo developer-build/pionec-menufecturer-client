@@ -35,9 +35,7 @@ const Footer = () => {
         <div>
           <span className=" text-lg md:mb-3 font-semibold">About Us</span>
           <p className="w-full lg:w-80">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Praesentium natus, maiores asperiores obcaecati numquam soluta
-            dicta? Harum doloremque
+            We are best in the city . we know what we Menufectures and we want you to you also know. and then buy from us. we are loyal and se customer feedbacks.
           </p>
           <div className="flex gap-6 mt-2 ">
             <img className="w-6 h-6" src={img1} alt="" />

@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "../shared/Footer";
 import Navber from "../shared/Navber";
-import profileImg from "../assests/imges/Ellipse 91.png";
+import profileImg from "../assests/imges/profile-pic (1).png";
 import {
   GlobeAltIcon,
   LocationMarkerIcon,
@@ -18,10 +18,10 @@ const MyPortfolio = () => {
           <h1 className="text-5xl uppercase text-accent text-center font-koulen font-semibold pt-5 pb-16">
             About <span className="text-primary">Me</span>
           </h1>
-          <div className="flex justify-around items-center gap-5">
+          <div className="flex flex-col md:flex-row justify-around items-center gap-5">
             <div className="  p-5 ">
               <img className="w-52" src={profileImg} alt="" />
-              <h1 className="text-primary text-4xl font-koulen pl-3 mt-5 mb-3">
+              <h1 className="text-primary text-4xl font-semibold font-koulen pl-3 mt-5 mb-3">
                 Muntasir Ahmed
               </h1>
               <div className="space-y-2 text-accent p-3 rounded-xl">
@@ -109,12 +109,12 @@ const MyPortfolio = () => {
               </div>
             </div>
           </div>
-          <div className="flex rounded-xl bg-accent space-x-10 mt-10 mb-16 pr-4 justify-center items-start">
-            <div className="text-white bg-accent rounded-xl pt-8 pb-12  flex-1">
+          <div className="flex flex-col lg:flex-row rounded-xl bg-accent lg:space-x-10 mt-10 mb-16 pr-4 justify-center items-start">
+            <div className="text-white bg-accent rounded-xl pt-8 w-full  flex-1">
               <h1 className="text-3xl px-5 uppercase font-koulen">
                 Some of my project
               </h1>
-              <div className=" py-5 px-5">
+              <div className=" pb-5 pt-4 px-5 w-full">
                 <div className="list-disc">
                   <h1 className="text-2xl mb-2">Project-1</h1>
                   <p>
@@ -125,31 +125,31 @@ const MyPortfolio = () => {
                       Family-Doc
                     </span>{" "}
                   </p>
-                  <p>
+                  <p className="texpt-sm">
                     {" "}
                     Live Site Link:
                     <span className="lowercase  text-info">
                       {" "}
-                      http://localhost:5000/muntasirahmed
+                      https://family-doctor-3c691.web.app
                     </span>{" "}
                   </p>
-                  <p>
+                  <p className="texpt-sm">
                     {" "}
                     GithubLink:
                     <span className="lowercase  text-info">
                       {" "}
-                      https://github.com/muntasirahmeed?tab=repositories
+                      https://github.com/programming-hero-web-course-4/independent-service-provider-muntasirahmeed
                     </span>{" "}
                   </p>
                 </div>
-                <div className="mt-5">
+                <div className="mt-4 w-full">
                   <h1 className="text-2xl mb-2">Project-2</h1>
-                  <p>
+                  <p className="texpt-sm">
                     {" "}
                     Name:
                     <span className="uppercase font-bold text-primary">
                       {" "}
-                      Jerin Parlour
+                      Iconic Car Warehouse
                     </span>{" "}
                   </p>
                   <p>
@@ -157,74 +157,69 @@ const MyPortfolio = () => {
                     Live Site Link:
                     <span className="lowercase  text-info">
                       {" "}
-                      http://localhost:5000/muntasirahmed
+                      https://car-wearhouse.web.app/
                     </span>{" "}
                   </p>
-                  <p>
+                  <p className="text-sm overflow-clip">
                     {" "}
                     GithubLink:
-                    <span className="lowercase  text-info">
+                    <span className="lowercase text-info">
                       {" "}
-                      https://github.com/muntasirahmeed?tab=repositories
+                      https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-muntasirahmeed
                     </span>{" "}
                   </p>
                 </div>
-                <div className="mt-5">
+                <div className="mt-4">
                   <h1 className="text-2xl mb-2">Project-3</h1>
                   <p>
                     {" "}
                     Name:
                     <span className="uppercase font-bold text-primary">
                       {" "}
-                      Iconic Ware House
+                      Review Bazar
                     </span>{" "}
                   </p>
-                  <p>
+                  <p className="texp-sm">
                     {" "}
                     Live Site Link:
                     <span className="lowercase  text-info">
                       {" "}
-                      http://localhost:5000/muntasirahmed
+                      https://tech-info-assignment9.netlify.app/
                     </span>{" "}
                   </p>
-                  <p>
+                  <p className="texp-sm">
                     {" "}
                     GithubLink:
                     <span className="lowercase  text-info">
                       {" "}
-                      https://github.com/muntasirahmeed?tab=repositories
+                      https://github.com/programming-hero-web-course-4 <br />{" "}
+                      product-analysis-website-muntasirahmeed
                     </span>{" "}
                   </p>
                 </div>
               </div>
             </div>
-            <div className=" px-3 flex-1 bg-base-100 m-4  text-accent rounded-xl">
+            <div className=" px-3 flex-1 bg-base-100 m-4 h-full  text-accent rounded-xl">
               <h1 className="text-3xl uppercase font-koulen  rounded-xl my-5 py-3 text-white ">
                 Educations{" "}
               </h1>
               <h1 className="bg-accent text-white shadow-sm py-5 px-3 rounded-xl mb-3">
                 <span className="font-bold">JSC</span>: <span>2018</span>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Tempore inventore nostrum, earum odit illo voluptas! Lorem
-                  ipsum dolor sit amet.
+                <p className="text-gray-400">
+                  Complete JSC in idrisia kamil am.a madrasha sherpur. and the
+                  passing year 2018 . the gpa we have gotten it's GPA 5
                 </p>
               </h1>
               <h1 className="bg-accent text-white shadow-sm py-5 px-3 rounded-xl mb-3">
-                <span className="font-bold">JSC</span>: <span>2018</span>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Tempore inventore nostrum, earum odit illo voluptas! Lorem
-                  ipsum dolor, sit amet consectetur adipisicing elit. Atque,
-                  modi?
+                <span className="font-bold">SSC </span>: <span>2021</span>
+                <p  className="text-gray-400">
+                  I was a madrasha student . that's why i don't was a ssc candidate. i was a Dakhil Candidate. i allhamdulillah i Got GPA 5 in my Dakhil Exam.
                 </p>
               </h1>
               <h1 className="bg-accent text-white shadow-sm py-5 px-3 rounded-xl mb-3">
-                <span className="font-bold">JSC</span>: <span>2018</span>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Tempore inventore nostrum, earum odit illo voluptas! Lorem
-                  ipsum dolor sit amet consectetur adipisicing.
+                <span className="font-bold">Dinloma in Computer Science</span>: <span>2021-2024</span>
+                <p className="text-gray-400">
+                  After Completing My Dakhil exam i realized that i have to do something in tech field. and also love this site. that's why i admitted dimploma in computer Science.
                 </p>
               </h1>
             </div>
@@ -237,32 +232,3 @@ const MyPortfolio = () => {
 };
 
 export default MyPortfolio;
-/*
-<div className="bg-white flex-1 p-5 text-accent rounded-xl">
-  <h1 className="text-3xl uppercase py-5">Educational </h1>
-  <h1 className="bg-secondary py-5 px-3 rounded-xl mb-3">
-    <span className="font-bold">JSC</span>: <span>2018</span>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore inventore
-      nostrum, earum odit illo voluptas! Lorem ipsum dolor sit amet.
-    </p>
-  </h1>
-  <h1 className="bg-secondary py-5 px-3 rounded-xl mb-3">
-    <span className="font-bold">JSC</span>: <span>2018</span>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore inventore
-      nostrum, earum odit illo voluptas! Lorem ipsum dolor, sit amet consectetur
-      adipisicing elit. Atque, modi?
-    </p>
-  </h1>
-  <h1 className="bg-secondary py-5 px-3 rounded-xl mb-3">
-    <span className="font-bold">JSC</span>: <span>2018</span>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore inventore
-      nostrum, earum odit illo voluptas! Lorem ipsum dolor sit amet consectetur
-      adipisicing.
-    </p>
-  </h1>
-</div>;
-
-*/

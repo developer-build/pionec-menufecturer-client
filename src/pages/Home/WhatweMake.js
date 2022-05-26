@@ -15,35 +15,34 @@ const WhatweMake = () => {
         <span className="h-1 bg-gray-400 rounded-full w-20"></span>
       </div>
       <div className="grid container mt-3 grid-cols-1 md:grid-cols-2  gap-10 justify-center lg:grid-cols-3 pt-5 pb-16">
-        
         <div className="text-center">
           <h2 className="text-2xl text-gray-400 mb-3 font-semibold uppercase">
-            Home Furnitures
+            Home Painting Tools
           </h2>
           <p className=" text-gray-400 font-thin">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-            exercitationem beatae reiciendis. A perferendis quasi hic? Expedita
-            quam, dolore soluta quia autem modi consequunt
+            We are best in the market to Menufectures home painting tools. The
+            best part of us. Our customer bealive us. and We provide best of
+            Best Home Painting Tools.
           </p>
         </div>
         <div className="text-center">
           <h2 className="text-2xl text-gray-400 mb-3 font-semibold uppercase">
-            Office Furnitures
+            Professional Tools
           </h2>
           <p className=" text-gray-400 font-thin">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-            exercitationem beatae reiciendis. A perferendis quasi hic? Expedita
-            quam, dolore soluta quia autem modi consequunt
+            The industry painting expert are recommend our painting Tools. They
+            know we are best in the market and we also know we have more and
+            more quality and design
           </p>
         </div>
         <div className="text-center ">
           <h2 className="text-2xl text-gray-400 mb-3 font-semibold uppercase">
-            garden Furnitures
+            Student Paint Tools
           </h2>
           <p className=" text-gray-400 font-thin">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-            exercitationem beatae reiciendis. A perferendis quasi hic? Expedita
-            quam, dolore soluta quia autem modi consequunt
+            We love learning. When it is about painting we just fall in love .
+            Student concern our one of the main priority. student are also
+            recommend our Painting Tools and Other Tools.
           </p>
         </div>
       </div>
