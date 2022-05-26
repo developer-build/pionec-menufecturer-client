@@ -12,12 +12,18 @@ import img2 from "../../assests/imges/cartoon.png";
 
 const Testimonials = () => {
   const [allReviews, setAllReviews] = useState([]);
-  const sortedReview = [...allReviews].reverse();
+  const [sortedReview, setSortedReview] = useState([]);
   useEffect(() => {
     fetch("https://tranquil-earth-82270.herokuapp.com/review")
       .then((res) => res.json())
       .then((data) => setAllReviews(data));
   }, []);
+  useEffect(() => {
+    if (allReviews) {
+      const sorted = [...allReviews].reverse();
+      setSortedReview(sorted);
+    }
+  }, [allReviews]);
 
   return (
     <div className="bg-secondary py-10 px-4">

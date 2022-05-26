@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import auth from "../../shared/firebase.init";
@@ -8,6 +8,7 @@ import DeleteProductModal from "./DeleteProductModal";
 import ProductsRow from "./ProductsRow";
 const ManageProducts = () => {
   const [deleteProduct, setDeleteProduct] = useState(null);
+  const [srotedProducts, setSortedProducts] = useState([]);
   const navigate = useNavigate();
   const {
     data: products,
@@ -28,10 +29,17 @@ const ManageProducts = () => {
       return res.json();
     })
     );
-  const srotedProducts = [...products].reverse()
+  useEffect(() => {
+    if (products) {
+      const sorted = [...products].reverse();
+      setSortedProducts(sorted);
+    }
+  },[products])
+
   if (isLoading) {
     return <Spinner />;
   }
+  
   return (
     <div className="bg-secondary h-full w-full text-accent pt-8 pb-16">
       <h1 className="text-3xl font-koulen text-center font-semibold uppercase text-primary">

@@ -7,7 +7,8 @@ import SingleTool from "./SingleTool";
 
 const Tools = () => {
   const [tools, setTools] = useState([]);
-  const sortedTools = [...tools].reverse()
+  const [sortedTools,setSortedTools]=useState([])
+ 
   const [loading, setLoading] = useState(true);
   const navigate=useNavigate()
   useEffect(() => {
@@ -18,9 +19,16 @@ const Tools = () => {
     };
     fetchig();
   }, []);
+  useEffect(() => {
+    if (sortedTools) {
+      const sorted = [...tools].reverse()
+      setSortedTools(sorted)
+    }
+  },[tools,sortedTools])
   if (loading) {
     return <Spinner />;
   }
+  
   return (
     <div className=" bg-secondary py-20">
       <div className="container">
