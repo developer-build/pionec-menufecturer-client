@@ -33,7 +33,7 @@ function App() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/my-portfolio" element={<MyPortfolio />} />
+        {/* <Route path="/my-portfolio" element={<MyPortfolio />} /> */}
         {/* --------Private Route------------- */}
         <Route
           path="/purchase/:id"

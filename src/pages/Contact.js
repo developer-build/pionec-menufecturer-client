@@ -8,7 +8,10 @@ const Contact = () => {
       <Navber />
       <div className="bg-base-100">
         <div className="bg-base-100 h-[90vh] flex justify-center items-center container">
-          <h1 className="text-4xl font-bold font-koulen text-primary">Welcome To Contact Page</h1>
+          <h1 className="text-2xl md:text-4xl text-center  capitalize font-semibold font-koulen text-primary">
+            Connect me to see the admin control system of this website
+          </h1>
+        
         </div>
       </div>
       <Footer />

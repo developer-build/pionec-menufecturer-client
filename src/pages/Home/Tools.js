@@ -8,7 +8,6 @@ import SingleTool from "./SingleTool";
 const Tools = () => {
   const [tools, setTools] = useState([]);
   const [sortedTools,setSortedTools]=useState([])
- 
   const [loading, setLoading] = useState(true);
   const navigate=useNavigate()
   useEffect(() => {
@@ -24,7 +23,7 @@ const Tools = () => {
       const sorted = [...tools].reverse()
       setSortedTools(sorted)
     }
-  },[tools,sortedTools])
+  },[tools])
   if (loading) {
     return <Spinner />;
   }

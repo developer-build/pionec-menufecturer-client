@@ -8,9 +8,10 @@ const Blogs = () => {
       <Navber></Navber>
       <div className="bg-secondary py-10 h-full  text-accent">
         <div className="container">
-          <h1 className="text-3xl font-koulen text-center font-semibold uppercase text-primary mb-5">
+          <h1 className="text-3xl font-koulen text-center font-semibold uppercase text-primary mb-8">
             Welcome To My Blogs
           </h1>
+          
           <div className="flex flex-col md:flex-row gap-5 bg-gray-300 p-4 rounded-lg">
             <div className="flex-1">
               <img
@@ -175,11 +176,7 @@ const Blogs = () => {
                 section of code and verify its correctness. A unit may be an
                 individual function, method, procedure, module, or object.
               </p>
-              <h2 className="text-xl font-semibold mb-2">
-                {" "}
-                Why Unit Testing
-              </h2>
-           ?
+              <h2 className="text-xl font-semibold mb-2"> Why Unit Testing</h2>?
               <p>
                 Unit Testing is important because software developers sometimes
                 try saving time doing minimal unit testing and this is myth

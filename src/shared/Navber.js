@@ -24,7 +24,9 @@ const Navber = () => {
                 <MenuAlt3Icon className="w-8 h-8"></MenuAlt3Icon>
               </label>
             )}
-            <span onClick={()=>navigate('/')} className='cursor-pointer'>POINEC</span>
+            <span onClick={() => navigate("/")} className="cursor-pointer">
+              POINEC
+            </span>
           </div>
           <div onClick={() => setOpen(!open)}>
             {open ? (
@@ -71,10 +73,10 @@ const Navber = () => {
             </Link>
 
             <Link
-              to="/my-portfolio"
+              to="/all-products"
               className=" px-5 font-semibold rounded py-1 text-black md:text-white "
             >
-              Portfolio
+              Products
             </Link>
             {user ? (
               <div className="dropdown self-center dropdown-end  ">
